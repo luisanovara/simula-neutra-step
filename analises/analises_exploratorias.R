@@ -10,7 +10,7 @@ resulta<-resultados_geral[,-1]
 ### Tentando usar pacote pse 
 # Acoplando resultados e dados de entrada
 colnames(dados3_25mar16)<-c("S","xi0","dp","dist.pos","dist.int")
-hipercubo_resultados<-tell(dados3_25mar16,resulta)
+hipercubo_resultados<-tell(dados3_25mar16,resulta) #nao funcionou porque dados3_25mar16 nao eh um objeto do tipo LHS, e sim um data frame
 
 #### Boxplot
 
@@ -171,19 +171,23 @@ for(i in 1:100){
 }
 resulta_2<-resultados_geral_2[,-1]
 resulta_2<-as.data.frame(resulta_2)
+### Acrescentando a diferenca entre a estrategia de vida final e a inicial como variavel resposta
 resulta_2$Dif_Media_xi0<-resulta_2[,1]-dados3_25mar16[,2]
+### Acrescentando o coeficiente de variacao das estrategias na comunidade como variavel resposta
 resulta_2$Coeficiente_Variacao<-(sqrt(resulta_2[,2]))/resulta_2[,1]
+### Acrescentando a variancia entre as medias das estrategias por especie como variavel resposta (variancia interespecifica)
 var_inter<-c()
 for(i in 1:100){
   var_inter[i]<-var(sim_todas[[i]][-1,2])
 }
 resulta_2$Variancia_Inter<-var_inter
+### Acrescentando o coeficiente de variacao das medias das estrategias por especie como variavel resposta (coeficiente de variacao interespecifica)
 media_medias.sp<-c()
 for(i in 1:100){
   media_medias.sp[i]<-mean(sim_todas[[i]][-1,2])
 }
 resulta_2$Coeficiente_Variacao_Inter<-(sqrt(var_inter))/media_medias.sp
-
+### Oranizando o data frame 
 resulta_2<-cbind(resulta_2[,1],resulta_2[,6],resulta_2[,2],resulta_2[,7],resulta_2[,3],resulta_2[,4],resulta_2[,5],resulta_2[,8],resulta_2[,9])
 colnames(resulta_2)<-c("Média","Dif_Média_xi0","Variância","Coeficiente_Variação","Assimetria","Curtose","Coeficiente_Pearson","Variância_Inter","Coeficiente_Variação_Inter")
 resulta_2
@@ -216,5 +220,6 @@ plot(pcc_coef_var_inter)
 abline(h=0,lty=2)
 title(xlab="Parâmetros",ylab="Correlação Parcial com \nCoeficiente de Variação Interespecífica")
 
+#### ECDF
 plot(ecdf(resulta_2[,2]),pch=20,xlab="Dif_Média_xi0",ylab="Proporção cumulativa",main="")
 plot(ecdf(resulta_2[,9]),pch=20,xlab="Coef_Var_Inter",ylab="Proporção cumulativa",main="")
