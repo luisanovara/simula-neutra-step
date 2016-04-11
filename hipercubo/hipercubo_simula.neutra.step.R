@@ -53,14 +53,16 @@ q <- c("qunif","qunif","qunif","qunif","qunif")
 ################ DEFININDO OS PARÂMETROS #################
 #################### DAS DISTRIBUIÇÕES ###################
 q.arg <- list(list(min=5,max=500),
-              list(min=1,max=20000),
+              list(min=1,max=1000), #para reduzir o tempo de proc., mudei de 20 000 para 1000
               list(min=0, max=5),
               list(min=1,max=100000),
               list(min=0,max=1))
 ################## RODANDO O HIPERCUBO ###################
-uncoupled_hipercubo_25mar16 <- LHS(NULL, factors, N=10000, q, q.arg, nboot=50)
+uncoupled_hipercubo_25mar16 <- LHS(NULL, factors, N=100, q, q.arg) #para reduzir o tempo de proc., mudei de 10 000 simulacoes para 1000, e depois para 100
 ######### ACESSANDO OS VALORES DE INPUT #########
-dados_25mar16<-get.data(uncoupled_hipercubo)
-dados2_25mar16<-cbind(round(dados[,1]),dados[,2],dados[,3],round(dados[,4]),dados[,5]) #arredondando valores de parametros que precisam ser inteiros: S (numero de especies) e dist.pos (intervalo entre eventos de disturbio)
-dados3_25mar16<-as.data.frame(dados2)
-
+dados_25mar16<-get.data(uncoupled_hipercubo_25mar16)
+dados2_25mar16<-cbind(round(dados_25mar16[,1]),dados_25mar16[,2],dados_25mar16[,3],round(dados_25mar16[,4]),dados_25mar16[,5]) #arredondando valores de parametros que precisam ser inteiros: S (numero de especies) e dist.pos (intervalo entre eventos de disturbio)
+dados3_25mar16<-as.data.frame(dados2_25mar16)
+####
+save(dados3_25mar16,file="dados_hipercubo_25mar16.RData")
+####
