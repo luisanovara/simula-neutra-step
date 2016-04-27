@@ -65,4 +65,31 @@ dados2_25mar16<-cbind(round(dados_25mar16[,1]),dados_25mar16[,2],dados_25mar16[,
 dados3_25mar16<-as.data.frame(dados2_25mar16)
 ####
 save(dados3_25mar16,file="dados_hipercubo_25mar16.RData")
+
+##########################################################
+################# SIMULACOES 12/04/2016 ##################
+##########################################################
+
+################# LISTANDO OS PARÂMETROS #################
+##################### DA MINHA FUNÇÃO ####################
+factors <- c("S","xi0","dp","dist.pos","dist.int")
+############### DEFININDO AS DISTRIBUIÇÕES ###############
+############ DE PROBABILIDADE DOS PARÂMETROS #############
+q <- c("qunif","qunif","qunif","qunif","qunif")
+################ DEFININDO OS PARÂMETROS #################
+#################### DAS DISTRIBUIÇÕES ###################
+q.arg <- list(list(min=5,max=500),
+              list(min=1,max=20000),
+              list(min=0, max=5),
+              list(min=1,max=100000),
+              list(min=0,max=1))
+################## RODANDO O HIPERCUBO ###################
+uncoupled_hipercubo_12abr16 <- LHS(NULL, factors, N=10000, q, q.arg) 
+######### ACESSANDO OS VALORES DE INPUT #########
+dados_12abr16<-get.data(uncoupled_hipercubo_12abr16)
+dados2_12abr16<-cbind(round(dados_12abr16[,1]),dados_12abr16[,2],dados_12abr16[,3],round(dados_12abr16[,4]),dados_12abr16[,5]) #arredondando valores de parametros que precisam ser inteiros: S (numero de especies) e dist.pos (intervalo entre eventos de disturbio)
+dados3_12abr16<-as.data.frame(dados2_12abr16)
 ####
+save(uncoupled_hipercubo_12abr16,file="hipercubo_12abr16.RData")
+save(dados_12abr16,file="dados_hipercubo_12abr16.RData")
+save(dados3_12abr16,file="dados_arredond_hipercubo_12abr16.RData")
