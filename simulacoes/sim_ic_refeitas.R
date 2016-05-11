@@ -150,7 +150,7 @@ sim_34_output_novo<-simula_output(simulacoes_25mar16_34)
 rm(simulacoes_25mar16_34)
 
 lista_output_novo<-c(sim_1_output_novo,sim_2_output_novo,sim_3_output_novo,sim_4_output_novo,sim_5_output_novo,sim_6_output_novo,sim_7_output_novo,sim_8_output_novo,sim_9_output_novo,sim_10_output_novo,sim_11_output_novo,sim_12_output_novo,sim_13_output_novo,sim_14_output_novo,sim_15_output_novo,sim_16_output_novo,sim_17_output_novo,sim_18_output_novo,sim_19_output_novo,sim_20_output_novo,sim_21_output_novo,sim_22_output_novo,sim_23_output_novo,sim_24_output_novo,sim_25_output_novo,sim_26_output_novo,sim_27_output_novo,sim_28_output_novo,sim_29_output_novo,sim_30_output_novo,sim_31_output_novo,sim_32_output_novo,sim_33_output_novo,sim_34_output_novo)
-save(lista_output_novo,file="lista_output_novo.RData")
+
 
 resultados_geral_novo<-matrix(nrow=100,ncol=6,dimnames=list(c(1:100),c("Abundancia","Media","Variancia","Assimetria","Curtose","Coeficiente_Pearson")))
 for(i in 1:100){

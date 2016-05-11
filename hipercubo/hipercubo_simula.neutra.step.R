@@ -67,29 +67,58 @@ dados3_25mar16<-as.data.frame(dados2_25mar16)
 save(dados3_25mar16,file="dados_hipercubo_25mar16.RData")
 
 ##########################################################
-################# SIMULACOES 12/04/2016 ##################
+################# SIMULACOES 27/04/2016 ##################
 ##########################################################
 
 ################# LISTANDO OS PARÂMETROS #################
 ##################### DA MINHA FUNÇÃO ####################
-factors <- c("S","xi0","dp","dist.pos","dist.int")
+factors <- c("S","xi0","dist.pos","dist.int")
 ############### DEFININDO AS DISTRIBUIÇÕES ###############
 ############ DE PROBABILIDADE DOS PARÂMETROS #############
-q <- c("qunif","qunif","qunif","qunif","qunif")
+q <- c("qunif","qunif","qunif","qunif")
 ################ DEFININDO OS PARÂMETROS #################
 #################### DAS DISTRIBUIÇÕES ###################
 q.arg <- list(list(min=5,max=500),
-              list(min=1,max=20000),
-              list(min=0, max=5),
-              list(min=1,max=100000),
+              list(min=1,max=6000),
+              list(min=1,max=1000000),
               list(min=0,max=1))
 ################## RODANDO O HIPERCUBO ###################
-uncoupled_hipercubo_12abr16 <- LHS(NULL, factors, N=10000, q, q.arg) 
+uncoupled_hipercubo_27abr16 <- LHS(NULL, factors, N=1000, q, q.arg) 
 ######### ACESSANDO OS VALORES DE INPUT #########
-dados_12abr16<-get.data(uncoupled_hipercubo_12abr16)
-dados2_12abr16<-cbind(round(dados_12abr16[,1]),dados_12abr16[,2],dados_12abr16[,3],round(dados_12abr16[,4]),dados_12abr16[,5]) #arredondando valores de parametros que precisam ser inteiros: S (numero de especies) e dist.pos (intervalo entre eventos de disturbio)
-dados3_12abr16<-as.data.frame(dados2_12abr16)
+dados_27abr16<-get.data(uncoupled_hipercubo_27abr16)
+dados2_27abr16<-cbind(round(dados_27abr16[,1]),dados_27abr16[,2],round(dados_27abr16[,3]),dados_27abr16[,4]) #arredondando valores de parametros que precisam ser inteiros: S (numero de especies) e dist.pos (intervalo entre eventos de disturbio)
+dados3_27abr16<-as.data.frame(dados2_27abr16)
 ####
-save(uncoupled_hipercubo_12abr16,file="hipercubo_12abr16.RData")
-save(dados_12abr16,file="dados_hipercubo_12abr16.RData")
-save(dados3_12abr16,file="dados_arredond_hipercubo_12abr16.RData")
+save(uncoupled_hipercubo_27abr16,file="hipercubo_27abr16.RData")
+save(dados_27abr16,file="dados_hipercubo_27abr16.RData")
+save(dados3_27abr16,file="dados_arredond_hipercubo_27abr16.RData")
+
+##########################################################
+################# SIMULACOES 09/05/2016 ##################
+##########################################################
+
+##########################################################
+############### EXTREMO 1 SP C/ EVOLUCAO #################
+##########################################################
+
+################# LISTANDO OS PARÂMETROS #################
+##################### DA MINHA FUNÇÃO ####################
+factors <- c("xi0","dist.pos","dist.int")
+############### DEFININDO AS DISTRIBUIÇÕES ###############
+############ DE PROBABILIDADE DOS PARÂMETROS #############
+q <- c("qunif","qunif","qunif")
+################ DEFININDO OS PARÂMETROS #################
+#################### DAS DISTRIBUIÇÕES ###################
+q.arg <- list(list(min=1,max=5000), #eu ia colocar de 1 a 6000, mas defini que, na simulacao com várias spp e sem evolucao, calcularei o X a partir do xi0 mínimo (1) e do J (5000), totalizando 5000. Como nao pode haver xi0 inicial maior do que o X, decidi abaixar o valor de xi0 máximo de todas as simulacoes
+              list(min=1,max=3e5),
+              list(min=0,max=1))
+################## RODANDO O HIPERCUBO ###################
+uncoupled_hipercubo_09mai16 <- LHS(NULL, factors, N=1000, q, q.arg) 
+######### ACESSANDO OS VALORES DE INPUT #########
+dados_09mai16<-get.data(uncoupled_hipercubo_09mai16)
+dados2_09mai16<-cbind(dados_09mai16[,1],round(dados_09mai16[,2]),dados_09mai16[,3]) #arredondando valores do parametro que precisa ser inteiros: dist.pos (intervalo entre eventos de disturbio)
+dados3_09mai16<-as.data.frame(dados2_09mai16)
+####
+save(uncoupled_hipercubo_09mai16,file="hipercubo_09mai16.RData")
+save(dados_09mai16,file="dados_hipercubo_09mai16.RData")
+save(dados3_09mai16,file="dados_arredond_hipercubo_09mai16.RData")

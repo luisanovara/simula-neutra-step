@@ -1,5 +1,7 @@
 # Analises exploratorias das simulacoes de 25mar16
 
+colnames(dados3_25mar16)<-c("S","xi0","dp","dist.pos","dist.int")
+
 #### Boxplot
 # fazer?
 
@@ -114,7 +116,7 @@ abline(modelo_pearson_dist.int)
 plot(ecdf(simulacoes_output_derivado[,1]),pch=20,xlab="Média",ylab="Proporção cumulativa",main="")
 plot(ecdf(simulacoes_output_derivado[,2]),pch=20,xlab="Dif_Média_xi0",ylab="Proporção cumulativa",main="")
 plot(ecdf(simulacoes_output_derivado[,3]),pch=20,xlab="Razão_Média_xi0",ylab="Proporção cumulativa",main="")
-plot(ecdf(simulacoes_output_derivado[,4),pch=20,xlab="Variância",ylab="Proporção cumulativa",main="")
+plot(ecdf(simulacoes_output_derivado[,4]),pch=20,xlab="Variância",ylab="Proporção cumulativa",main="")
 plot(ecdf(simulacoes_output_derivado[,5]),pch=20,xlab="Coef_Variação",ylab="Proporção cumulativa",main="")
 plot(ecdf(simulacoes_output_derivado[,6]),pch=20,xlab="Assimetria",ylab="Proporção cumulativa",main="")
 plot(ecdf(simulacoes_output_derivado[,7]),pch=20,xlab="Excesso de Curtose",ylab="Proporção cumulativa",main="")
@@ -128,6 +130,7 @@ plot(ecdf(simulacoes_output_derivado[,14]),pch=20,xlab="Coef_Pearson_Sp",ylab="P
 
 #### PCC
 require(sensitivity)
+par(mar=c(5,6,4,2))
 # Media
 simulacoes_output_derivado_media<-as.vector(simulacoes_output_derivado[,1])
 pcc_media<-pcc(dados3_25mar16,simulacoes_output_derivado_media,nboot=50)
@@ -145,7 +148,7 @@ simulacoes_output_derivado_raz_media_xi0<-as.vector(simulacoes_output_derivado[,
 pcc_raz_media_xi0<-pcc(dados3_25mar16,simulacoes_output_derivado_raz_media_xi0,nboot=50)
 plot(pcc_raz_media_xi0)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Razão_Média_xi0")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nRazão_Média_xi0")
 # Variancia
 simulacoes_output_derivado_variancia<-as.vector(simulacoes_output_derivado[,4])
 pcc_variancia<-pcc(dados3_25mar16,simulacoes_output_derivado_variancia,nboot=50)
@@ -157,37 +160,40 @@ simulacoes_output_derivado_coef_var<-as.vector(simulacoes_output_derivado[,5])
 pcc_coef_var<-pcc(dados3_25mar16,simulacoes_output_derivado_coef_var,nboot=50)
 plot(pcc_coef_var)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Coeficiente de Variação")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nCoeficiente de Variação")
 # Assimetria
 simulacoes_output_derivado_assimetria<-as.vector(simulacoes_output_derivado[,6])
-pcc_assimetria<-pcc(dados3_25mar16,simulacoes_output_derivado_assimetria,nboot=50)
+nan_assimetria<-which(is.nan(simulacoes_output_derivado_assimetria))
+pcc_assimetria<-pcc(dados3_25mar16[-nan_assimetria,],simulacoes_output_derivado_assimetria[-nan_assimetria],nboot=50)
 plot(pcc_assimetria)
 abline(h=0,lty=2)
 title(xlab="Parâmetros",ylab="Correlação Parcial com Assimetria")
 # Excesso de Curtose
 simulacoes_output_derivado_curtose<-as.vector(simulacoes_output_derivado[,7])
-pcc_curtose<-pcc(dados3_25mar16,simulacoes_output_derivado_curtose,nboot=50)
+nan_curtose<-which(is.nan(simulacoes_output_derivado_curtose))
+pcc_curtose<-pcc(dados3_25mar16[-nan_curtose,],simulacoes_output_derivado_curtose[-nan_curtose],nboot=50)
 plot(pcc_curtose)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Excesso de Curtose")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nExcesso de Curtose")
 # Pearson
 simulacoes_output_derivado_pearson<-as.vector(simulacoes_output_derivado[,8])
-pcc_pearson<-pcc(dados3_25mar16,simulacoes_output_derivado_pearson,nboot=50)
+nan_pearson<-which(is.nan(simulacoes_output_derivado_pearson))
+pcc_pearson<-pcc(dados3_25mar16[-nan_pearson,],simulacoes_output_derivado_pearson[-nan_pearson],nboot=50)
 plot(pcc_pearson)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Coeficiente de Pearson")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nCoeficiente de Pearson")
 # Media das medias/sp
 simulacoes_output_derivado_media_medias<-as.vector(simulacoes_output_derivado[,9])
 pcc_media_medias<-pcc(dados3_25mar16,simulacoes_output_derivado_media_medias,nboot=50)
 plot(pcc_media_medias)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Média das Médias/Sp")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nMédia das Médias/Sp")
 # Variancia Interespecifica
 simulacoes_output_derivado_var_inter<-as.vector(simulacoes_output_derivado[,10])
 pcc_var_inter<-pcc(dados3_25mar16,simulacoes_output_derivado_var_inter,nboot=50)
 plot(pcc_var_inter)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Variância Interespecífica")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nVariância Interespecífica")
 # Coeficiente de Variacao Interespecifica
 simulacoes_output_derivado_coef_var_inter<-as.vector(simulacoes_output_derivado[,11])
 pcc_coef_var_inter<-pcc(dados3_25mar16,simulacoes_output_derivado_coef_var_inter,nboot=50)
@@ -196,19 +202,22 @@ abline(h=0,lty=2)
 title(xlab="Parâmetros",ylab="Correlação Parcial com \nCoeficiente de Variação Interespecífica")
 # Assimetria/Sp
 simulacoes_output_derivado_assimetria_sp<-as.vector(simulacoes_output_derivado[,12])
-pcc_assimetria_sp<-pcc(dados3_25mar16,simulacoes_output_derivado_assimetria_sp,nboot=50)
+nan_assimetria_sp<-which(is.nan(simulacoes_output_derivado_assimetria_sp))
+pcc_assimetria_sp<-pcc(dados3_25mar16[-nan_assimetria_sp,],simulacoes_output_derivado_assimetria_sp[-nan_assimetria_sp],nboot=50)
 plot(pcc_assimetria_sp)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Assimetria das Médias/Sp")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nAssimetria das Médias/Sp")
 # Excesso de Curtose/Sp
 simulacoes_output_derivado_curtose_sp<-as.vector(simulacoes_output_derivado[,13])
-pcc_curtose_sp<-pcc(dados3_25mar16,simulacoes_output_derivado_curtose_sp,nboot=50)
+nan_curtose_sp<-which(is.nan(simulacoes_output_derivado_curtose_sp))
+pcc_curtose_sp<-pcc(dados3_25mar16[-nan_curtose_sp,],simulacoes_output_derivado_curtose_sp[-nan_curtose_sp],nboot=50)
 plot(pcc_curtose_sp)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Excesso de Curtose das Médias/Sp")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nExcesso de Curtose das Médias/Sp")
 # Pearson/Sp
 simulacoes_output_derivado_pearson_sp<-as.vector(simulacoes_output_derivado[,14])
-pcc_pearson_sp<-pcc(dados3_25mar16,simulacoes_output_derivado_pearson_sp,nboot=50)
+nan_pearson_sp<-which(is.nan(simulacoes_output_derivado_pearson_sp))
+pcc_pearson_sp<-pcc(dados3_25mar16[-nan_pearson_sp,],simulacoes_output_derivado_pearson_sp[-nan_pearson_sp],nboot=50)
 plot(pcc_pearson_sp)
 abline(h=0,lty=2)
-title(xlab="Parâmetros",ylab="Correlação Parcial com Coeficiente de Pearson das Médias/Sp")
+title(xlab="Parâmetros",ylab="Correlação Parcial com \nCoeficiente de Pearson das Médias/Sp")
