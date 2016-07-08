@@ -17,6 +17,12 @@ save(sim_cn_3,file="sim_cn_3.RData")
 tab_cn_3<-fert.t1(sim_cn_3$sp.list,sim_cn_3$sementes,mean)
 matplot(t(tab_cn_3),type="l",xlab="Ciclo",ylab="",axes=T,main="Variação no número de propágulos (cn - rep3)")
 
+sim_cn_4 <- simula.neutra.cn(S= 10, j=400, xi0=rep(seq(10,10,length.out = 10),each=200), dp=1, dist.pos=NULL, dist.int=NULL, ciclo=2000000, step=1000) #duracao: 600 min
+save(sim_cn_4,file="sim_cn_4.RData")
+tab_cn_4<-fert.t1(sim_cn_4$sp.list,sim_cn_4$sementes,mean)
+matplot(t(tab_cn_4),type="l",xlab="Ciclo",ylab="",axes=T,main="Variação no número de propágulos (cn - rep4)")
+tab_cn_4_sd<-fert.t1(sim_cn_4$sp.list,sim_cn_4$sementes,sd)
+
 lista<-list(sim_cn_1,sim_cn_2,sim_cn_3)
 simulacoes_output<-simula_output(lista)
 

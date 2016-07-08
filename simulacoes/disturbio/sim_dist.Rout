@@ -1,0 +1,41 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+During startup - Warning message:
+Setting LC_CTYPE failed, using "C" 
+> ### Simulacoes variando frequencia dos disturbios ###
+> 
+> # xi0 inicial = valor medio entre minimo (1) e maximo (X=20000)
+> # S = 1
+> 
+> source("simula.neutra.trade_LEVE.R")
+> require(truncnorm)
+Loading required package: truncnorm
+> 
+> sim_dist_0 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=NULL,dist.int=NULL,ciclo=3e5,step=100)
+Tempo de processamento:  37.57 min
+> save(sim_dist_0,file="sim_dist_0.RData")
+> 
+> sim_dist_1 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+Tempo de processamento:  346.34 min
+> save(sim_dist_1,file="sim_dist_1.RData")
+> 
+> proc.time()
+     user    system   elapsed 
+21744.682  1311.065 23055.837 

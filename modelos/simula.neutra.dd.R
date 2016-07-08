@@ -169,7 +169,7 @@ simula.neutra.dd=function(S= 100, j=10, xi0=rep(seq(10,10,length.out = S),each=j
   resulta=list(tempo=tempo,sp.list=ind.mat,sementes=prop.mat,prob.morte=dead.mat,n.mortes.cumulativo=n.dead.vetor)
   t1=proc.time()[[3]] ### Marca o termino da contagem de tempo de processamento da funcao
   cat("Tempo de processamento: ", round((t1-t0)/60,2),"min\n") ### Mostra o tempo de processamento no console
-  attributes(resulta)$start=list(especies=S, individuos=j, nprop=xi0, sd=dp, posicao_disturbios=dist.pos, intensidade_disturbios=dist.int, ciclos=ciclo, passos=step) ### Inclui atributos no objeto resulta
+  attributes(resulta)$start=list(especies=S, individuos=j, nprop=xi0, nprop_max=X, prob_mort=pi0, sd=dp, posicao_disturbios=dist.pos, intensidade_disturbios=dist.int, ciclos=ciclo, passos=step) ### Inclui atributos no objeto resulta
   return(resulta) ### Retorna o objeto resulta
 }
 #############################################################################

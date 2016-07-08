@@ -4,17 +4,12 @@
 
 ##############################################################################
 ######### Evolucao de estrategias de vida a partir de cenario neutro #########
-###################### SEM TRADE-OFF - DEMONIO DE DARWIN #####################
-######################### VERSAO COM CARACTER NEUTRO #########################
 ##############################################################################
-############################## simula.neutra.cn ##############################
+############################# simula.neutra.trade ############################
 ##############################################################################
 ############################ Listagem das versoes ############################
 ##############################################################################
-# 10. Versao modificada por Luisa Novara para incluir pi0 como um argumento (maio 2016)
-# 9. Versao modificada por Luisa Novara para incluir X como um argumento e alguns erros de parada (maio 2016)
-# 8. Versao modificada por Luisa Novara para tornar a fecundidade (numero de propagulos produzidos por ciclo) um caracter não importante para o fitness (caracter neutro) (maio 2016)
-# 7. Versao modificada por Luisa Novara para retirar o trade-off entre a fecundidade e a probabilidade de morte (maio 2016)
+# 7. Versao modificada por Luisa Novara para incluir X como um argumento e alguns erros de parada (maio 2016)
 # 6. Versao modificada por Luisa Novara para incluir spp com diferentes estrategias de vida iniciais (maio 2016)
 # 5. Versao modificada por Luisa Novara para incluir retorno do numero de mortes cumulativo (maio 2016)
 # 4. Versao modificada por Luisa Novara e Alexandre Adalardo (fevereiro 2016)
@@ -24,17 +19,14 @@
 ##############################################################################
 ########################## Detalhamento das versoes ##########################
 ##############################################################################
-# 10. Retira o calculo da probabilidade de morte inicial de 1/J e substitui pela entrada de valores a escolha do usuario (argumento pi0)
-# 9. Desliga a linha de comando que calcula X a partir de xi0J e inclui X como um argumento da funcao, para evitar que a estrategia de vida inicial (xi0) esteja sempre muito distante do maximo possivel (X)
-# 8. Sorteia os individuos que irao repor os mortos a partir dos individuos adultos da comunidade, e nao a partir do banco de propagulos. Logo, o numero de propagulos que um individuo produz por ciclo nao interfere em sua persistencia na comunidade, e a fecundidade se torna um caracter "neutro" (porque, alem disso, nao existe o trade-off entre fecundidade e sobrevivencia). Isso eh interessante para avaliarmos como ocorre a evolucao de um carater neutro neste modelo
-# 7. Troca o calculo da probabilidade de morte de individuos novos de xi0/X (trade-off) para um sorteio de uma distribuicao normal cuja media eh a media dos parentais (assim como eh feito para o numero de propagulos produzidos por ciclo)
-# 6. Troca a forma do argumento xi0 de um valor para um vetor de tamanho J, com os valores das estrategias iniciais de cada individuo da comunidade
+# 7. Desliga a linha de comando que calcula X a partir de xi0J e inclui X como um argumento da funcao, para evitar que a estrategia de vida inicial (xi0) esteja sempre muito distante do maximo possivel (X)
+# 6. Troca a forma do argumento xi0 de um valor para um vetor de tamanho J, com os valores das estrategias iniciais de cada individuo da comunidade.
 # 4. Troca o argumento X por xi0, para que X (que eh dado por xi0*J) seja inteiro
 # 2. Troca o antigo argumento cv (coeficiente de variacao) pelo dp (desvio padrao) da distribuicao normal da herdabilidade de xi. Isso permite que a herdabilidade permaneça constante e evita o erro de gerar herdabilidade maior quando os valores de xi sao mais baixos (i.e., evita que os valores de xi da populacao fiquem "presos" em valores mais baixos e isso mascare os reais resultados das simulacoes)
 ##############################################################################
 ############################## Inicio da funcao ##############################
 ##############################################################################
-simula.neutra.cn=function(S= 100, j=10, xi0=rep(seq(10,10,length.out = S),each=j), X=10000, pi0=rep(seq(0.01,0.01,length.out = S),each=j), dp=0.1, dist.pos=NULL, dist.int=NULL, ciclo=1e6, step=100)
+simula.neutra.trade=function(S= 100, j=10, xi0=rep(seq(10,10,length.out = S),each=j), X=10000, dp=0, dist.pos=NULL, dist.int=NULL, ciclo=1e6, step=100)
 {
   #cat("Inicio simulacao... Ciclos: ")
   t0=proc.time()[[3]] ### Marca o inicio da contagem de tempo de processamento da funcao
@@ -82,8 +74,8 @@ simula.neutra.cn=function(S= 100, j=10, xi0=rep(seq(10,10,length.out = S),each=j
   ### Guarda a identidade inicial de cada individuo
   ind.mat[,1] <- rep(1:S,each=j)
   cod.sp <- ind.mat[,1] ### Transfere informacao para vetor temporario que se atualiza a cada ciclo, depois de ser copiado para uma coluna da matriz
-  ### Guarda a probabilidade de morte de cada individuo
-  dead.mat[,1] <- pi0
+  ### Guarda a probabilidade de morte de cada individuo (calculada a partir do trade-off)
+  dead.mat[,1] <- xi0/X
   p.death <- dead.mat[,1] ### Transfere informacao para vetor temporario que se atualiza a cada ciclo, depois de ser copiado para uma coluna da matriz
   ### Guarda o numero de propagulos produzidos por ciclo de cada individuo
   prop.mat[,1] <- xi0 ### Transfere informacao para vetor temporario que se atualiza a cada ciclo, depois de ser copiado para uma coluna da matriz
@@ -129,19 +121,18 @@ simula.neutra.cn=function(S= 100, j=10, xi0=rep(seq(10,10,length.out = S),each=j
     if(n.mortes>0) ### Identifica se houve mortes no ciclo
     {
       cod.ind<-1:J
-      seed.bank <- rep(cod.ind,round(n.propag)) ### Banco de propagulos: cada propagulo tem o codigo numerico do individuo. Como o fenotipo n.propag pode ter valores nao inteiros, arredondamos.
+      #seed.bank <- rep(cod.ind,round(n.propag)) ### Banco de propagulos: cada propagulo tem o codigo numerico do individuo. Como o fenotipo n.propag pode ter valores nao inteiros, arredondamos.
       nascer= which(morte==1) ### Armazena indices dos individuos que morreram
-      mami=sample(cod.ind, n.mortes) ### Sorteia os individuos adultos que irao repor os mortos
+      #mami=sample(seed.bank, n.mortes) ### Sorteia os propagulos que irao repor os mortos
+      mami=sample(x=cod.ind, size=n.mortes, prob=n.propag) ### Sorteia os propagulos que irao repor os mortos
       papi <- c() ### Cria vetor para armazenar o fenotipo do pai
       for(w in 1:n.mortes) ### Cria loop para sortear o pai entre os individuos da especie de cada propagulo-mae sorteado
       {
         papi[w] <- sample(cod.ind[ cod.sp==cod.sp[mami[w]] ],1)
       }
-      medias.prop=(n.propag[mami]+n.propag[papi])/2 ### Calcula o valor esperado de propagulos produzidos por ciclo dos filhotes, representado pela media do numero medio de propagulos produzidos pelos parentais
       cod.sp[nascer]<-cod.sp[mami] ### Substitui codigos das especies dos mortos pelos codigos dos individuos novos
-      n.propag[nascer] <- sapply(1,rtruncnorm,a=1, b=X , mean= medias.prop,sd=dp) ### Sorteia o numero de propagulos produzidos por ciclo pelos novos individuos de uma distribuicao normal discretizada e truncada entre 1 e X
-      medias.p.death <- (p.death[mami]+p.death[papi])/2 ### Calcula a media da probabilidade de morte dos pais
-      p.death[nascer] <- sapply(1,rtruncnorm,a=1/200000, b=1, mean=medias.p.death,sd=dp) ### Sorteia a probabilidade de morte dos novos individuos de uma distribuicao normal discretizada e truncada entre um numero muito pequeno e 1 e cuja media eh a media dos pais
+      n.propag[nascer] <- (n.propag[mami]+n.propag[papi])/2 ### Calcula o valor de propagulos produzidos por ciclo dos filhotes, representado pela media do numero medio de propagulos produzidos pelos parentais
+      p.death[nascer] <- n.propag[nascer]/X ### Calcula a probabilidade de morte dos individuos novos a partir do trade-off
     }
     #########################################################################
     ####################### Salvamento dos resultados #######################
@@ -169,10 +160,15 @@ simula.neutra.cn=function(S= 100, j=10, xi0=rep(seq(10,10,length.out = S),each=j
   colnames(dead.mat) <- tempo ### Nomeia colunas da matriz dead.mat
   colnames(prop.mat) <- tempo ### Nomeia colunas da matriz prop.mat
   names(n.dead.vetor) <- tempo ### Nomeia os elementos do vetor
-  resulta=list(tempo=tempo,sp.list=ind.mat,sementes=prop.mat,prob.morte=dead.mat,n.mortes.cumulativo=n.dead.vetor)
+  resulta=list(
+    #tempo=tempo,
+    sp.list=ind.mat,
+    sementes=prop.mat,
+    #prob.morte=dead.mat,
+    n.mortes.cumulativo=n.dead.vetor)
   t1=proc.time()[[3]] ### Marca o termino da contagem de tempo de processamento da funcao
   cat("Tempo de processamento: ", round((t1-t0)/60,2),"min\n") ### Mostra o tempo de processamento no console
-  attributes(resulta)$start=list(especies=S, individuos=j, nprop=xi0, nprop_max=X, prob_mort=pi0, sd=dp, posicao_disturbios=dist.pos, intensidade_disturbios=dist.int, ciclos=ciclo, passos=step) ### Inclui atributos no objeto resulta
+  attributes(resulta)$start=list(especies=S, individuos=j, nprop=xi0, nprop_max=X, sd=dp, posicao_disturbios=dist.pos, intensidade_disturbios=dist.int, ciclos=ciclo, passos=step) ### Inclui atributos no objeto resulta
   return(resulta) ### Retorna o objeto resulta
 }
 #############################################################################
