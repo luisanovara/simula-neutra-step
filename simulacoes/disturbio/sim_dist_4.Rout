@@ -1,0 +1,105 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+During startup - Warning message:
+Setting LC_CTYPE failed, using "C" 
+> ### Simulacoes variando frequencia dos disturbios ###
+> 
+> # xi0 inicial = valor medio entre minimo (1) e maximo (X=20000)
+> # S = 1
+> 
+> source("simula.neutra.trade_LEVE_sem_banco_sem.R")
+> require(truncnorm)
+Loading required package: truncnorm
+> 
+> #sim_dist_0 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=NULL,dist.int=NULL,ciclo=3e5,step=100)
+> #save(sim_dist_0,file="sim_dist_0.RData")
+> #tab_dist_0 <- fert.t(sim_dist_0$sp.list,sim_dist_0$sementes)
+> #tab_dist_0[3001]
+> #plot(tab_dist_0,type="l")
+> #plot(tab_dist_0[1:20],type="l")
+> 
+> #sim_dist_1 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+> #save(sim_dist_1,file="sim_dist_1.RData")
+> #tab_dist_1 <- fert.t(sim_dist_1$sp.list,sim_dist_1$sementes)
+> #tab_dist_1[3001]
+> #plot(tab_dist_1,type="l")
+> #plot(tab_dist_1[1:20],type="l")
+> 
+> # derivacoes do sim_dist_1
+> ## com xi0 de 1000 (abaixo do valor em que estabiliza em sim_dist_1)
+> #sim_dist_2 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+> #tab_dist_2 <- fert.t1(sim_dist_2$sp.list,sim_dist_2$sementes)
+> #tab_dist_2[3001]
+> #plot(tab_dist_2,type="l")
+> #plot(tab_dist_2[1:20],type="l")
+> ## com maior intensidade de disturbio
+> #sim_dist_3 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.9,ciclo=3e5,step=100)
+> #tab_dist_3 <- fert.t1(sim_dist_3$sp.list,sim_dist_3$sementes)
+> #tab_dist_3[3001]
+> #plot(tab_dist_3,type="l")
+> #plot(tab_dist_3[1:20],type="l")
+> ## com maior frequencia de disturbio
+> #sim_dist_4 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(5,3e5,5),dist.int=0.5,ciclo=3e5,step=100)
+> #save(sim_dist_4,file="sim_dist_4.RData")
+> #tab_dist_4 <- fert.t1(sim_dist_4$sp.list,sim_dist_4$sementes)
+> #tab_dist_4[3001]
+> #plot(tab_dist_4,type="l")
+> #plot(tab_dist_4[1:20],type="l")
+> ## com xi0 de 50 (abaixo do valor em que estabiliza em sim_dist_0)
+> #sim_dist_5 <- simula.neutra.trade(S=1,j=5000,xi0=50,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+> #save(sim_dist_5,file="sim_dist_5.RData")
+> #tab_dist_5 <- fert.t1(sim_dist_5$sp.list,sim_dist_5$sementes)
+> #tab_dist_5[3001]
+> #plot(tab_dist_5,type="l")
+> #plot(tab_dist_5[1:20],type="l")
+> 
+> ## com X menor
+> #sim_dist_6 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=2000,dp=500,dist.pos=NULL,dist.int=NULL,ciclo=3e5,step=100)
+> #save(sim_dist_6,file="sim_dist_6.RData")
+> #tab_dist_6 <- fert.t(sim_dist_6$sp.list,sim_dist_6$sementes)
+> #tab_dist_6[3001]
+> #plot(tab_dist_6,type="l")
+> #plot(tab_dist_6[1:20],type="l")
+> 
+> #sim_dist_7 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=2000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+> #save(sim_dist_7,file="sim_dist_7.RData")
+> #tab_dist_7 <- fert.t(sim_dist_7$sp.list,sim_dist_7$sementes)
+> #tab_dist_7[3001]
+> #plot(tab_dist_7,type="l")
+> #plot(tab_dist_7[1:20],type="l")
+> 
+> #sim_dist_8 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=2000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+> #save(sim_dist_8,file="sim_dist_8.RData")
+> 
+> #sim_dist_9 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+> #save(sim_dist_9,file="sim_dist_9.RData")
+> 
+> #sim_dist_10 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,1e6,10),dist.int=0.5,ciclo=1e6,step=100)
+> #save(sim_dist_10,file="sim_dist_10.RData")
+> 
+> sim_dist_11 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=2000,dp=500,dist.pos=seq(10,1e6,10),dist.int=0.5,ciclo=1e6,step=100)
+Tempo de processamento:  1982.48 min
+> save(sim_dist_11,file="sim_dist_11.RData")
+> 
+> proc.time()
+     user    system   elapsed 
+118890.01    103.23 118991.96 

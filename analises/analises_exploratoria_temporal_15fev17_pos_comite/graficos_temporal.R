@@ -1,0 +1,565 @@
+#### carregando dados output
+# media
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp0_media_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp1_media_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp10_media_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp100_media_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp500_media_temporal.RData")
+# variancia total
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp0_var_total_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp1_var_total_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp10_var_total_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp100_var_total_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp500_var_total_temporal.RData")
+# var inter relativa
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp0_var_inter_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp1_var_inter_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp10_var_inter_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp100_var_inter_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp500_var_inter_temporal.RData")
+# riqueza
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp0_riqueza_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp1_riqueza_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp10_riqueza_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp100_riqueza_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp500_riqueza_temporal.RData")
+# mortes cumulativas
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp0_mortes_cumulativas_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp1_mortes_cumulativas_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp10_mortes_cumulativas_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp100_mortes_cumulativas_temporal.RData")
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp500_mortes_cumulativas_temporal.RData")
+
+# calcular var inter a partir de var inter relativa
+pos_comite_dp0_var_inter_absoluta_temporal <- pos_comite_dp0_var_inter_temporal*pos_comite_dp0_var_total_temporal
+pos_comite_dp1_var_inter_absoluta_temporal <- pos_comite_dp1_var_inter_temporal*pos_comite_dp1_var_total_temporal
+pos_comite_dp10_var_inter_absoluta_temporal <- pos_comite_dp10_var_inter_temporal*pos_comite_dp10_var_total_temporal
+pos_comite_dp100_var_inter_absoluta_temporal <- pos_comite_dp100_var_inter_temporal*pos_comite_dp100_var_total_temporal
+pos_comite_dp500_var_inter_absoluta_temporal <- pos_comite_dp500_var_inter_temporal*pos_comite_dp500_var_total_temporal
+
+# calcular ss inter a partir de var inter
+pos_comite_dp0_ss_inter_temporal <- pos_comite_dp0_var_inter_absoluta_temporal*(pos_comite_dp0_riqueza_temporal-1)
+pos_comite_dp500_ss_inter_temporal <- pos_comite_dp500_var_inter_absoluta_temporal*(pos_comite_dp500_riqueza_temporal-1)
+
+#### carregando dados disturbio
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_hipercubo/dados_hipercubo_27jul16/dados_arredond_hipercubo_27jul16.RData")
+#### arrumando dados disturbio
+bat3_indice_dist <- dados3_27jul16[,2]*dados3_27jul16[,3]
+#quantile(bat3_indice_dist,probs=c(0.33,0.66))
+dist_classe_1 <- which(bat3_indice_dist<28849.08)
+dist_classe_2 <- which(bat3_indice_dist>=28849.08 & bat3_indice_dist<=90183.74)
+dist_classe_3 <- which(bat3_indice_dist>90183.74)
+dist_classes <- c()
+dist_classes[dist_classe_1] <- 203
+dist_classes[dist_classe_2] <- 183
+dist_classes[dist_classe_3] <- 153
+
+dist_classes2 <- c()
+dist_classes2[dist_classe_1] <- 27
+dist_classes2[dist_classe_2] <- 461
+dist_classes2[dist_classe_3] <- 491
+
+dist_classes3 <- c()
+dist_classes3[dist_classe_1] <- 134
+dist_classes3[dist_classe_2] <- 133
+dist_classes3[dist_classe_3] <- 137
+
+dist_classes4 <- c()
+dist_classes4[dist_classe_1] <- 496
+dist_classes4[dist_classe_2] <- 497
+dist_classes4[dist_classe_3] <- 81
+
+dist_classes5 <- c()
+dist_classes5[dist_classe_1] <- 142
+dist_classes5[dist_classe_2] <- 145
+dist_classes5[dist_classe_3] <- 146
+
+#### retirando linhas que deu pau no grupo dp100
+pos_comite_dp100_mortes_cumulativas_temporal <- pos_comite_dp100_mortes_cumulativas_temporal[-c(553:568,787),]
+pos_comite_dp100_riqueza_temporal <- pos_comite_dp100_riqueza_temporal[-c(553:568,787),]
+
+#### GRAFICOS
+require(ggplot2)
+
+### media e riqueza
+
+## dp 0
+# zoom: todos os ciclos
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp0_media_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 0",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp0_riqueza_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp0_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 0",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp0_riqueza_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp0_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 0",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp0_riqueza_temporal)[1:10,],type="l",col=alpha(colors()[dist_classes2],0.3),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+
+# dp 1
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp1_media_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 1",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp1_riqueza_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp1_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 1",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp1_riqueza_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp1_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 1",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp1_riqueza_temporal)[1:10,],type="l",col=alpha(colors()[dist_classes2],0.3),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+
+# dp 10
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp10_media_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 10",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp10_riqueza_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp10_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 10",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp10_riqueza_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp10_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 10",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp10_riqueza_temporal)[1:10,],type="l",col=alpha(colors()[dist_classes2],0.3),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+
+# dp 100
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp100_media_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 100",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp100_riqueza_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp100_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 100",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp100_riqueza_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp100_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 100",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp100_riqueza_temporal)[1:10,],type="l",col=alpha(colors()[dist_classes2],0.3),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+
+# dp 500
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp500_media_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 500",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp500_riqueza_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp500_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 500",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp500_riqueza_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes2],0.5),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp500_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 500",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""))
+axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+par(new=T)
+matplot(t(pos_comite_dp500_riqueza_temporal)[1:10,],type="l",col=alpha(colors()[dist_classes2],0.3),lty=1,ylim=c(1,500),axes=F,ylab="")
+axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
+mtext("Riqueza",4,padj=4,col="blue")
+
+
+### variancia total e variancia inter relativa
+
+## dp 0
+# zoom: todos os ciclos
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp0_var_total_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 0",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp0_var_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp0_var_inter_absoluta_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+matplot(t(pos_comite_dp0_ss_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Desvio quadrático interespecífico",axes=F,ylim=c(0,4e11))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,1e11,2e11,3e11,4e11,5e11),labels=c("",0,expression(text=paste("1x10"^"11",sep="")),expression(text=paste("2x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),expression(text=paste("4x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp0_var_total_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 0",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp0_var_inter_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp0_var_inter_absoluta_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+matplot(t(pos_comite_dp0_ss_inter_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Desvio quadrático interespecífico",axes=F,ylim=c(0,4e11))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,1e11,2e11,3e11,4e11,5e11),labels=c("",0,expression(text=paste("1x10"^"11",sep="")),expression(text=paste("2x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),expression(text=paste("4x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp0_var_total_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 0",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp0_var_inter_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp0_var_inter_absoluta_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+matplot(t(pos_comite_dp0_ss_inter_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Desvio quadrático interespecífico",axes=F,ylim=c(0,4e11))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,1e11,2e11,3e11,4e11,5e11),labels=c("",0,expression(text=paste("1x10"^"11",sep="")),expression(text=paste("2x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),expression(text=paste("4x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+
+# dp 1
+# zoom: todos os ciclos
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp1_var_total_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 1",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp1_var_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp1_var_inter_absoluta_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp1_var_total_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 1",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp1_var_inter_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp1_var_inter_absoluta_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp1_var_total_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 1",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp1_var_inter_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp1_var_inter_absoluta_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+
+# dp 10
+# zoom: todos os ciclos
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp10_var_total_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 10",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp10_var_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp10_var_inter_absoluta_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp10_var_total_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 10",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp10_var_inter_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp10_var_inter_absoluta_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp10_var_total_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 10",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp10_var_inter_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp10_var_inter_absoluta_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+
+# dp 100
+# zoom: todos os ciclos
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp100_var_total_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 100",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp100_var_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp100_var_inter_absoluta_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp100_var_total_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 100",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp100_var_inter_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp100_var_inter_absoluta_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp100_var_total_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 100",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp100_var_inter_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp100_var_inter_absoluta_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+
+# dp 500
+# zoom: todos os ciclos
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp500_var_total_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 500",axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp500_var_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp500_var_inter_absoluta_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+matplot(t(pos_comite_dp500_ss_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Desvio quadrático interespecífico",ylim=c(0,4e11),bty="l")
+matplot(t(pos_comite_dp500_ss_inter_temporal)[1:3001,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Desvio quadrático interespecífico",ylim=c(0,2.5e11),axes=F)
+axis(1,at=c(-200,1,751,1501,2251,3001,3500),labels=c("",0,75000,150000,225000,300000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.625e11,1.25e11,1.875e11,2.5e11,5e11),labels=c("",0,expression(text=paste("0,625x10"^"11",sep="")),expression(text=paste("1,25x10"^"11",sep="")),expression(text=paste("1,875x10"^"11",sep="")),expression(text=paste("2,5x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+
+# zoom: 10 000 primeiros ciclos (101 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp500_var_total_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 500",axes=F)
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp500_var_inter_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp500_var_inter_absoluta_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(-100,1,26,51,76,101,200),labels=c("",0,2500,5000,7500,10000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+# zoom: 1000 primeiros ciclos (11 tempos)
+par(mfrow=c(3,1))
+par(mar=c(5,5,4,5))
+par(mgp=c(3.5,1,0))
+matplot(t(pos_comite_dp500_var_total_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes5],0.3),lty=1,ylim=c(1,8e7),ylab="Variância da estratégia de vida",bty="u",main="Taxa de mutação = 500",axes=F)
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e7,0,2e7,4e7,6e7,8e7,9e7),labels=c("",0,expression(text=paste("20x10"^"6",sep="")),expression(text=paste("40x10"^"6",sep="")),expression(text=paste("60x10"^"6",sep="")),expression(text=paste("80x10"^"6",sep="")),""),las=1,cex.axis=0.8)
+matplot(t(pos_comite_dp500_var_inter_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes4],0.3),lty=1,ylab="Variância interespecífica relativa",axes=F,ylim=c(0,5000))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,las=1,at=c(-1000,1,1250,2500,3750,5000,6000),labels=c("",1,1250,2500,3750,5000,""),cex.axis=0.8)
+matplot(t(pos_comite_dp500_var_inter_absoluta_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes3],0.3),lty=1,xlab="Ciclos",ylab="Variância interespecífica",axes=F,ylim=c(0,3e11))
+axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8)
+axis(2,at=c(-1e11,0,0.75e11,1.5e11,2.25e11,3e11,4e11),labels=c("",0,expression(text=paste("0,75x10"^"11",sep="")),expression(text=paste("1,5x10"^"11",sep="")),expression(text=paste("2,25x10"^"11",sep="")),expression(text=paste("3x10"^"11",sep="")),""),las=1,cex.axis=0.7)
+
+
+##### GRAFICOS DE ANALISE NO TEMPO DE GERACAO 5000
+
+#dp 0
+dp0_ciclos_nger5000 <- apply(pos_comite_dp0_mortes_cumulativas_temporal-25000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp0_media_nger5000 <- c()
+dp0_var_total_nger5000 <- c()
+dp0_var_inter_absoluta_nger5000 <- c()
+dp0_var_inter_relativa_nger5000 <- c()
+for(i in 1:1000){
+  dp0_media_nger5000[i] <- pos_comite_dp0_media_temporal[i,dp0_ciclos_nger5000[i]]
+  dp0_var_total_nger5000[i] <- pos_comite_dp0_var_total_temporal[i,dp0_ciclos_nger5000[i]]
+  dp0_var_inter_absoluta_nger5000[i] <- pos_comite_dp0_var_inter_absoluta_temporal[i,dp0_ciclos_nger5000[i]]
+  dp0_var_inter_relativa_nger5000[i] <- pos_comite_dp0_var_inter_temporal[i,dp0_ciclos_nger5000[i]]
+}
+
+par(mfrow=c(2,2))
+plot(dp0_media_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Estratégia de vida média após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp0_var_total_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Variância da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp0_var_inter_absoluta_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp0_var_inter_relativa_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica relativa da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+
+#dp 1
+dp1_ciclos_nger5000 <- apply(pos_comite_dp1_mortes_cumulativas_temporal-25000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp1_media_nger5000 <- c()
+dp1_var_total_nger5000 <- c()
+dp1_var_inter_absoluta_nger5000 <- c()
+dp1_var_inter_relativa_nger5000 <- c()
+for(i in 1:1000){
+  dp1_media_nger5000[i] <- pos_comite_dp1_media_temporal[i,dp1_ciclos_nger5000[i]]
+  dp1_var_total_nger5000[i] <- pos_comite_dp1_var_total_temporal[i,dp1_ciclos_nger5000[i]]
+  dp1_var_inter_absoluta_nger5000[i] <- pos_comite_dp1_var_inter_absoluta_temporal[i,dp1_ciclos_nger5000[i]]
+  dp1_var_inter_relativa_nger5000[i] <- pos_comite_dp1_var_inter_temporal[i,dp1_ciclos_nger5000[i]]
+}
+
+par(mfrow=c(2,2))
+plot(dp1_media_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Estratégia de vida média após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp1_var_total_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Variância da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp1_var_inter_absoluta_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp1_var_inter_relativa_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica relativa da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+
+
+#dp 10
+#dp 10
+dp10_ciclos_nger5000 <- apply(pos_comite_dp10_mortes_cumulativas_temporal-25000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp10_media_nger5000 <- c()
+dp10_var_total_nger5000 <- c()
+dp10_var_inter_absoluta_nger5000 <- c()
+dp10_var_inter_relativa_nger5000 <- c()
+for(i in 1:1000){
+  dp10_media_nger5000[i] <- pos_comite_dp10_media_temporal[i,dp10_ciclos_nger5000[i]]
+  dp10_var_total_nger5000[i] <- pos_comite_dp10_var_total_temporal[i,dp10_ciclos_nger5000[i]]
+  dp10_var_inter_absoluta_nger5000[i] <- pos_comite_dp10_var_inter_absoluta_temporal[i,dp10_ciclos_nger5000[i]]
+  dp10_var_inter_relativa_nger5000[i] <- pos_comite_dp10_var_inter_temporal[i,dp10_ciclos_nger5000[i]]
+}
+
+par(mfrow=c(2,2))
+plot(dp10_media_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Estratégia de vida média após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp10_var_total_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Variância da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp10_var_inter_absoluta_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp10_var_inter_relativa_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica relativa da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+
+
+#dp 100
+#dp 100
+dp100_ciclos_nger5000 <- apply(pos_comite_dp100_mortes_cumulativas_temporal-25000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp100_media_nger5000 <- c()
+dp100_var_total_nger5000 <- c()
+dp100_var_inter_absoluta_nger5000 <- c()
+dp100_var_inter_relativa_nger5000 <- c()
+for(i in 1:1000){
+  dp100_media_nger5000[i] <- pos_comite_dp100_media_temporal[i,dp100_ciclos_nger5000[i]]
+  dp100_var_total_nger5000[i] <- pos_comite_dp100_var_total_temporal[i,dp100_ciclos_nger5000[i]]
+  dp100_var_inter_absoluta_nger5000[i] <- pos_comite_dp100_var_inter_absoluta_temporal[i,dp100_ciclos_nger5000[i]]
+  dp100_var_inter_relativa_nger5000[i] <- pos_comite_dp100_var_inter_temporal[i,dp100_ciclos_nger5000[i]]
+}
+
+par(mfrow=c(2,2))
+plot(dp100_media_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Estratégia de vida média após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp100_var_total_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Variância da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp100_var_inter_absoluta_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp100_var_inter_relativa_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica relativa da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+
+
+#dp 500
+dp500_ciclos_nger5000 <- apply(pos_comite_dp500_mortes_cumulativas_temporal-25000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp500_media_nger5000 <- c()
+dp500_var_total_nger5000 <- c()
+dp500_var_inter_absoluta_nger5000 <- c()
+dp500_var_inter_relativa_nger5000 <- c()
+for(i in 1:1000){
+  dp500_media_nger5000[i] <- pos_comite_dp500_media_temporal[i,dp500_ciclos_nger5000[i]]
+  dp500_var_total_nger5000[i] <- pos_comite_dp500_var_total_temporal[i,dp500_ciclos_nger5000[i]]
+  dp500_var_inter_absoluta_nger5000[i] <- pos_comite_dp500_var_inter_absoluta_temporal[i,dp500_ciclos_nger5000[i]]
+  dp500_var_inter_relativa_nger5000[i] <- pos_comite_dp500_var_inter_temporal[i,dp500_ciclos_nger5000[i]]
+}
+
+par(mfrow=c(2,2))
+plot(dp500_media_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Estratégia de vida média após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp500_var_total_nger5000~bat3_indice_dist,pch=20,xlab="",ylab="Variância da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp500_var_inter_absoluta_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)
+plot(dp500_var_inter_relativa_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Variância interespecífica relativa da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8)

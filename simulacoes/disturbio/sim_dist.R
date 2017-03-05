@@ -8,14 +8,14 @@ require(truncnorm)
 
 sim_dist_0 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=NULL,dist.int=NULL,ciclo=3e5,step=100)
 save(sim_dist_0,file="sim_dist_0.RData")
-tab_dist_0 <- fert.t1(sim_dist_0$sp.list,sim_dist_0$sementes)
+tab_dist_0 <- fert.t(sim_dist_0$sp.list,sim_dist_0$sementes)
 tab_dist_0[3001]
 plot(tab_dist_0,type="l")
 plot(tab_dist_0[1:20],type="l")
 
 sim_dist_1 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
 save(sim_dist_1,file="sim_dist_1.RData")
-tab_dist_1 <- fert.t1(sim_dist_1$sp.list,sim_dist_1$sementes)
+tab_dist_1 <- fert.t(sim_dist_1$sp.list,sim_dist_1$sementes)
 tab_dist_1[3001]
 plot(tab_dist_1,type="l")
 plot(tab_dist_1[1:20],type="l")
@@ -47,3 +47,22 @@ tab_dist_5 <- fert.t1(sim_dist_5$sp.list,sim_dist_5$sementes)
 tab_dist_5[3001]
 plot(tab_dist_5,type="l")
 plot(tab_dist_5[1:20],type="l")
+
+## com X menor
+sim_dist_6 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=2000,dp=500,dist.pos=NULL,dist.int=NULL,ciclo=3e5,step=100)
+save(sim_dist_6,file="sim_dist_6.RData")
+tab_dist_6 <- fert.t(sim_dist_6$sp.list,sim_dist_6$sementes)
+tab_dist_6[3001]
+plot(tab_dist_6,type="l")
+plot(tab_dist_6[1:20],type="l")
+
+sim_dist_7 <- simula.neutra.trade(S=1,j=5000,xi0=1000.5,X=2000,dp=500,dist.pos=seq(10,3e5,10),dist.int=0.5,ciclo=3e5,step=100)
+save(sim_dist_7,file="sim_dist_7.RData")
+tab_dist_7 <- fert.t(sim_dist_7$sp.list,sim_dist_7$sementes)
+tab_dist_7[3001]
+plot(tab_dist_7,type="l")
+plot(tab_dist_7[1:20],type="l")
+
+sim_dist_10 <- simula.neutra.trade(S=1,j=5000,xi0=10000.5,X=20000,dp=500,dist.pos=seq(10,1e6,10),dist.int=0.5,ciclo=1e6,step=100)
+hist(sim_dist_10$sementes[,3001],breaks=100,xlim=c(0,3500),xlab="propágulos/ciclo",ylab="frequência",main="Histograma das estratégias no ciclo 300 mil")
+hist(sim_dist_10$sementes[,10001],breaks=100,xlim=c(0,3500),xlab="propágulos/ciclo",ylab="frequência",main="Histograma das estratégias no ciclo 1 milhão")

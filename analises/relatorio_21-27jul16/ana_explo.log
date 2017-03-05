@@ -1,0 +1,972 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.27)  7 OCT 2016 12:19
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**ana_explo.tex
+(./ana_explo.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count90
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2016/04/23 3.9r The Babel package
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel-portuges/portuges.ldf
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count91
+\U@D=\dimen113
+)
+Package babel Info: Making " an active character on input line 145.
+))
+(./ana_explo.aux)
+\openout1 = `ana_explo.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count92
+\scratchdimen=\dimen114
+\scratchbox=\box26
+\nofMPsegments=\count93
+\nofMParguments=\count94
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count95
+\MPscratchDim=\dimen115
+\MPnumerator=\count96
+\makeMPintoPDFobject=\count97
+\everyMPtoPDFconversion=\toks18
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<sim21jul16_hist_prop_nger5000.pdf, id=1, 433.62pt x 433.62pt>
+File: sim21jul16_hist_prop_nger5000.pdf Graphic file (type pdf)
+
+<use sim21jul16_hist_prop_nger5000.pdf>
+Package pdftex.def Info: sim21jul16_hist_prop_nger5000.pdf used on input line 3
+3.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<sim25jul16_hist_prop_nger5000.pdf, id=10, 433.62pt x 433.62pt>
+File: sim25jul16_hist_prop_nger5000.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_prop_nger5000.pdf>
+Package pdftex.def Info: sim25jul16_hist_prop_nger5000.pdf used on input line 3
+6.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
+
+ []
+
+[2 <./sim21jul16_hist_prop_nger5000.pdf>]
+<sim27jul16_hist_prop_nger5000.pdf, id=21, 433.62pt x 433.62pt>
+File: sim27jul16_hist_prop_nger5000.pdf Graphic file (type pdf)
+
+<use sim27jul16_hist_prop_nger5000.pdf>
+Package pdftex.def Info: sim27jul16_hist_prop_nger5000.pdf used on input line 3
+9.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+[3 <./sim25jul16_hist_prop_nger5000.pdf>]
+<sim21jul16_hist_variaveis_med_dist.pdf, id=33, 433.62pt x 433.62pt>
+File: sim21jul16_hist_variaveis_med_dist.pdf Graphic file (type pdf)
+
+<use sim21jul16_hist_variaveis_med_dist.pdf>
+Package pdftex.def Info: sim21jul16_hist_variaveis_med_dist.pdf used on input l
+ine 46.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [4 <./sim27jul16_hist_prop_nger5000.pdf>] <sim21jul16_hist_variaveis_med.pdf, 
+id=42, 433.62pt x 433.62pt>
+File: sim21jul16_hist_variaveis_med.pdf Graphic file (type pdf)
+
+<use sim21jul16_hist_variaveis_med.pdf>
+Package pdftex.def Info: sim21jul16_hist_variaveis_med.pdf used on input line 4
+9.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
+
+ []
+
+[5 <./sim21jul16_hist_variaveis_med_dist.pdf>]
+<sim21jul16_hist_variaveis_var_dist.pdf, id=51, 433.62pt x 433.62pt>
+File: sim21jul16_hist_variaveis_var_dist.pdf Graphic file (type pdf)
+
+<use sim21jul16_hist_variaveis_var_dist.pdf>
+Package pdftex.def Info: sim21jul16_hist_variaveis_var_dist.pdf used on input l
+ine 58.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [6 <./sim21jul16_hist_variaveis_med.pdf>] <sim25jul16_hist_variaveis_perda_dis
+t.pdf, id=60, 433.62pt x 433.62pt>
+File: sim25jul16_hist_variaveis_perda_dist.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_variaveis_perda_dist.pdf>
+Package pdftex.def Info: sim25jul16_hist_variaveis_perda_dist.pdf used on input
+ line 73.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [7 <./sim21jul16_hist_variaveis_var_dist.pdf>]
+<sim25jul16_hist_variaveis_med_dist.pdf, id=70, 433.62pt x 433.62pt>
+File: sim25jul16_hist_variaveis_med_dist.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_variaveis_med_dist.pdf>
+Package pdftex.def Info: sim25jul16_hist_variaveis_med_dist.pdf used on input l
+ine 76.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [8 <./sim25jul16_hist_variaveis_perda_dist.pdf>] <sim25jul16_hist_variaveis_me
+d.pdf, id=79, 433.62pt x 433.62pt>
+File: sim25jul16_hist_variaveis_med.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_variaveis_med.pdf>
+Package pdftex.def Info: sim25jul16_hist_variaveis_med.pdf used on input line 7
+9.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
+
+ []
+
+[9 <./sim25jul16_hist_variaveis_med_dist.pdf>]
+<sim25jul16_hist_variaveis_med_sp_dist.pdf, id=88, 433.62pt x 433.62pt>
+File: sim25jul16_hist_variaveis_med_sp_dist.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_variaveis_med_sp_dist.pdf>
+Package pdftex.def Info: sim25jul16_hist_variaveis_med_sp_dist.pdf used on inpu
+t line 81.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [10 <./sim25jul16_hist_variaveis_med.pdf>]
+<sim25jul16_hist_variaveis_var_dist.pdf, id=97, 433.62pt x 433.62pt>
+File: sim25jul16_hist_variaveis_var_dist.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_variaveis_var_dist.pdf>
+Package pdftex.def Info: sim25jul16_hist_variaveis_var_dist.pdf used on input l
+ine 90.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [11 <./sim25jul16_hist_variaveis_med_sp_dist.pdf>]
+<sim25jul16_hist_variaveis_var_dist_>1sp.pdf, id=109, 433.62pt x 433.62pt>
+File: sim25jul16_hist_variaveis_var_dist_>1sp.pdf Graphic file (type pdf)
+
+<use sim25jul16_hist_variaveis_var_dist_>1sp.pdf>
+Package pdftex.def Info: sim25jul16_hist_variaveis_var_dist_>1sp.pdf used on in
+put line 94.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [12 <./sim25jul16_hist_variaveis_var_dist.pdf>]
+<sim27jul16_hist_variaveis_perda_dist.pdf, id=118, 433.62pt x 433.62pt>
+File: sim27jul16_hist_variaveis_perda_dist.pdf Graphic file (type pdf)
+
+<use sim27jul16_hist_variaveis_perda_dist.pdf>
+Package pdftex.def Info: sim27jul16_hist_variaveis_perda_dist.pdf used on input
+ line 114.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [13 <./sim25jul16_hist_variaveis_var_dist_>1sp.pdf>]
+<sim27jul16_hist_variaveis_med_dist.pdf, id=128, 433.62pt x 433.62pt>
+File: sim27jul16_hist_variaveis_med_dist.pdf Graphic file (type pdf)
+
+<use sim27jul16_hist_variaveis_med_dist.pdf>
+Package pdftex.def Info: sim27jul16_hist_variaveis_med_dist.pdf used on input l
+ine 117.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [14 <./sim27jul16_hist_variaveis_perda_dist.pdf>]
+<sim27jul16_hist_variaveis_med_sp_dist.pdf, id=137, 433.62pt x 433.62pt>
+File: sim27jul16_hist_variaveis_med_sp_dist.pdf Graphic file (type pdf)
+
+<use sim27jul16_hist_variaveis_med_sp_dist.pdf>
+Package pdftex.def Info: sim27jul16_hist_variaveis_med_sp_dist.pdf used on inpu
+t line 120.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
+[15 <./sim27jul16_hist_variaveis_med_dist.pdf>]
+<sim27jul16_hist_variaveis_var_dist.pdf, id=146, 433.62pt x 433.62pt>
+File: sim27jul16_hist_variaveis_var_dist.pdf Graphic file (type pdf)
+
+<use sim27jul16_hist_variaveis_var_dist.pdf>
+Package pdftex.def Info: sim27jul16_hist_variaveis_var_dist.pdf used on input l
+ine 131.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [16 <./sim27jul16_hist_variaveis_med_sp_dist.pdf>]
+<sim27jul16_hist_variaveis_var_sp_dist.pdf, id=155, 433.62pt x 433.62pt>
+File: sim27jul16_hist_variaveis_var_sp_dist.pdf Graphic file (type pdf)
+
+<use sim27jul16_hist_variaveis_var_sp_dist.pdf>
+Package pdftex.def Info: sim27jul16_hist_variaveis_var_sp_dist.pdf used on inpu
+t line 134.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+[17 <./sim27jul16_hist_variaveis_var_dist.pdf>]
+<sim21jul16_prcc_med.pdf, id=165, 433.62pt x 433.62pt>
+File: sim21jul16_prcc_med.pdf Graphic file (type pdf)
+
+<use sim21jul16_prcc_med.pdf>
+Package pdftex.def Info: sim21jul16_prcc_med.pdf used on input line 151.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [18 <./sim27jul16_hist_variaveis_var_sp_dist.pdf>] <sim21jul16_prcc_var.pdf, i
+d=174, 433.62pt x 433.62pt>
+File: sim21jul16_prcc_var.pdf Graphic file (type pdf)
+
+<use sim21jul16_prcc_var.pdf>
+Package pdftex.def Info: sim21jul16_prcc_var.pdf used on input line 161.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [19 <./sim21jul16_prcc_med.pdf>]
+<sim21jul16_hist_prop_nger5000_dist_baixo_2.pdf, id=193, 433.62pt x 433.62pt>
+File: sim21jul16_hist_prop_nger5000_dist_baixo_2.pdf Graphic file (type pdf)
+
+<use sim21jul16_hist_prop_nger5000_dist_baixo_2.pdf>
+Package pdftex.def Info: sim21jul16_hist_prop_nger5000_dist_baixo_2.pdf used on
+ input line 164.
+(pdftex.def)             Requested size: 512.1496pt x 512.20972pt.
+
+Overfull \hbox (99.14497pt too wide) in paragraph at lines 164--166
+[][] 
+ []
+
+[20 <./sim21jul16_prcc_var.pdf>]
+<sim21jul16_hist_prop_nger5000_dist_baixo_2_2.pdf, id=211, 433.62pt x 433.62pt>
+File: sim21jul16_hist_prop_nger5000_dist_baixo_2_2.pdf Graphic file (type pdf)
+<use sim21jul16_hist_prop_nger5000_dist_baixo_2_2.pdf>
+Package pdftex.def Info: sim21jul16_hist_prop_nger5000_dist_baixo_2_2.pdf used 
+on input line 167.
+(pdftex.def)             Requested size: 512.1496pt x 512.20972pt.
+
+<sim21jul16_hist_prop_nger5000_dist_baixo_alto.pdf, id=212, 433.62pt x 433.62pt
+>
+File: sim21jul16_hist_prop_nger5000_dist_baixo_alto.pdf Graphic file (type pdf)
+
+ <use sim21jul16_hist_prop_nger5000_dist_baixo_alto.pdf>
+Package pdftex.def Info: sim21jul16_hist_prop_nger5000_dist_baixo_alto.pdf used
+ on input line 168.
+(pdftex.def)             Requested size: 512.1496pt x 512.20972pt.
+
+Overfull \hbox (99.14497pt too wide) in paragraph at lines 167--170
+[][] 
+ []
+
+
+Overfull \hbox (82.14497pt too wide) in paragraph at lines 167--170
+[] 
+ []
+
+[21 <./sim21jul16_hist_prop_nger5000_dist_baixo_2.pdf>] [22 <./sim21jul16_hist_
+prop_nger5000_dist_baixo_2_2.pdf>]
+<sim25jul16_prcc_riqfin.pdf, id=229, 433.62pt x 433.62pt>
+File: sim25jul16_prcc_riqfin.pdf Graphic file (type pdf)
+
+<use sim25jul16_prcc_riqfin.pdf>
+Package pdftex.def Info: sim25jul16_prcc_riqfin.pdf used on input line 182.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+
+ []
+
+[23 <./sim21jul16_hist_prop_nger5000_dist_baixo_alto.pdf>]
+<sim25jul16_prcc_perda.pdf, id=238, 433.62pt x 433.62pt>
+File: sim25jul16_prcc_perda.pdf Graphic file (type pdf)
+
+<use sim25jul16_prcc_perda.pdf>
+Package pdftex.def Info: sim25jul16_prcc_perda.pdf used on input line 184.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [24 <./sim25jul16_prcc_riqfin.pdf>]
+<sim25jul16_prcc_med.pdf, id=252, 433.62pt x 433.62pt>
+File: sim25jul16_prcc_med.pdf Graphic file (type pdf)
+
+<use sim25jul16_prcc_med.pdf>
+Package pdftex.def Info: sim25jul16_prcc_med.pdf used on input line 188.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [25 <./sim25jul16_prcc_perda.pdf>]
+<sim25jul16_prcc_var.pdf, id=271, 433.62pt x 433.62pt>
+File: sim25jul16_prcc_var.pdf Graphic file (type pdf)
+
+<use sim25jul16_prcc_var.pdf>
+Package pdftex.def Info: sim25jul16_prcc_var.pdf used on input line 198.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [26 <./sim25jul16_prcc_med.pdf>]
+<sim25jul16_prcc_var_>1sp.pdf, id=285, 433.62pt x 433.62pt>
+File: sim25jul16_prcc_var_>1sp.pdf Graphic file (type pdf)
+
+<use sim25jul16_prcc_var_>1sp.pdf>
+Package pdftex.def Info: sim25jul16_prcc_var_>1sp.pdf used on input line 202.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+ [27 <./sim25jul16_prcc_var.pdf>]
+<sim27jul16_prcc_riqfin.pdf, id=303, 433.62pt x 433.62pt>
+File: sim27jul16_prcc_riqfin.pdf Graphic file (type pdf)
+
+<use sim27jul16_prcc_riqfin.pdf>
+Package pdftex.def Info: sim27jul16_prcc_riqfin.pdf used on input line 220.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+[28 <./sim25jul16_prcc_var_>1sp.pdf>]
+<sim27jul16_prcc_perda.pdf, id=318, 433.62pt x 433.62pt>
+File: sim27jul16_prcc_perda.pdf Graphic file (type pdf)
+
+<use sim27jul16_prcc_perda.pdf>
+Package pdftex.def Info: sim27jul16_prcc_perda.pdf used on input line 222.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+ []
+
+[29 <./sim27jul16_prcc_riqfin.pdf>]
+<sim27jul16_prcc_med.pdf, id=336, 433.62pt x 433.62pt>
+File: sim27jul16_prcc_med.pdf Graphic file (type pdf)
+
+<use sim27jul16_prcc_med.pdf>
+Package pdftex.def Info: sim27jul16_prcc_med.pdf used on input line 224.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+[30 <./sim27jul16_prcc_perda.pdf>]
+<sim27jul16_prcc_var.pdf, id=354, 433.62pt x 433.62pt>
+File: sim27jul16_prcc_var.pdf Graphic file (type pdf)
+
+<use sim27jul16_prcc_var.pdf>
+Package pdftex.def Info: sim27jul16_prcc_var.pdf used on input line 231.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+[31 <./sim27jul16_prcc_med.pdf>]
+<sim21jul16_scatter_media_distpos.pdf, id=373, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_media_distpos.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_media_distpos.pdf>
+Package pdftex.def Info: sim21jul16_scatter_media_distpos.pdf used on input lin
+e 244.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_res_media_distpos.pdf, id=374, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_res_media_distpos.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_res_media_distpos.pdf>
+Package pdftex.def Info: sim21jul16_scatter_res_media_distpos.pdf used on input
+ line 245.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_media_distint.pdf, id=375, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_media_distint.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_media_distint.pdf>
+Package pdftex.def Info: sim21jul16_scatter_media_distint.pdf used on input lin
+e 246.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_res_media_distint.pdf, id=376, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_res_media_distint.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_res_media_distint.pdf>
+Package pdftex.def Info: sim21jul16_scatter_res_media_distint.pdf used on input
+ line 247.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--248
+
+ []
+
+[32 <./sim27jul16_prcc_var.pdf>] [33 <./sim21jul16_scatter_media_distpos.pdf>]
+[34 <./sim21jul16_scatter_res_media_distpos.pdf>] [35 <./sim21jul16_scatter_med
+ia_distint.pdf>]
+<sim21jul16_scatter_var_distpos.pdf, id=418, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_var_distpos.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_var_distpos.pdf>
+Package pdftex.def Info: sim21jul16_scatter_var_distpos.pdf used on input line 
+249.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_res_var_distpos.pdf, id=419, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_res_var_distpos.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_res_var_distpos.pdf>
+Package pdftex.def Info: sim21jul16_scatter_res_var_distpos.pdf used on input l
+ine 250.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_res_var_distpos_maior.pdf, id=420, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_res_var_distpos_maior.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_res_var_distpos_maior.pdf>
+Package pdftex.def Info: sim21jul16_scatter_res_var_distpos_maior.pdf used on i
+nput line 251.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_var_distint.pdf, id=421, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_var_distint.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_var_distint.pdf>
+Package pdftex.def Info: sim21jul16_scatter_var_distint.pdf used on input line 
+252.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_res_var_distint.pdf, id=422, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_res_var_distint.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_res_var_distint.pdf>
+Package pdftex.def Info: sim21jul16_scatter_res_var_distint.pdf used on input l
+ine 253.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim21jul16_scatter_res_var_distint_maior.pdf, id=423, 433.62pt x 433.62pt>
+File: sim21jul16_scatter_res_var_distint_maior.pdf Graphic file (type pdf)
+
+<use sim21jul16_scatter_res_var_distint_maior.pdf>
+Package pdftex.def Info: sim21jul16_scatter_res_var_distint_maior.pdf used on i
+nput line 254.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--255
+
+ []
+
+[36 <./sim21jul16_scatter_res_media_distint.pdf>] [37 <./sim21jul16_scatter_var
+_distpos.pdf>] [38 <./sim21jul16_scatter_res_var_distpos.pdf>] [39 <./sim21jul1
+6_scatter_res_var_distpos_maior.pdf>] [40 <./sim21jul16_scatter_var_distint.pdf
+>] [41 <./sim21jul16_scatter_res_var_distint.pdf>]
+<sim25jul16_scatter_media_distpos.pdf, id=474, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_media_distpos.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_media_distpos.pdf>
+Package pdftex.def Info: sim25jul16_scatter_media_distpos.pdf used on input lin
+e 260.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_med_distpos.pdf, id=475, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_med_distpos.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_med_distpos.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_med_distpos.pdf used on input l
+ine 261.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_media_distint.pdf, id=476, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_media_distint.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_media_distint.pdf>
+Package pdftex.def Info: sim25jul16_scatter_media_distint.pdf used on input lin
+e 262.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_med_distint.pdf, id=477, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_med_distint.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_med_distint.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_med_distint.pdf used on input l
+ine 263.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--264
+
+ []
+
+[42 <./sim21jul16_scatter_res_var_distint_maior.pdf>] [43 <./sim25jul16_scatter
+_media_distpos.pdf>] [44 <./sim25jul16_scatter_res_med_distpos.pdf>] [45 <./sim
+25jul16_scatter_media_distint.pdf>]
+<sim25jul16_scatter_med_sp_distpos.pdf, id=511, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_med_sp_distpos.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_med_sp_distpos.pdf>
+Package pdftex.def Info: sim25jul16_scatter_med_sp_distpos.pdf used on input li
+ne 265.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_med_sp_distpos.pdf, id=512, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_med_sp_distpos.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_med_sp_distpos.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_med_sp_distpos.pdf used on inpu
+t line 266.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_med_sp_distint.pdf, id=513, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_med_sp_distint.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_med_sp_distint.pdf>
+Package pdftex.def Info: sim25jul16_scatter_med_sp_distint.pdf used on input li
+ne 267.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_med_sp_distint.pdf, id=514, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_med_sp_distint.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_med_sp_distint.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_med_sp_distint.pdf used on inpu
+t line 268.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--269
+
+ []
+
+[46 <./sim25jul16_scatter_res_med_distint.pdf>] [47 <./sim25jul16_scatter_med_s
+p_distpos.pdf>] [48 <./sim25jul16_scatter_res_med_sp_distpos.pdf>] [49 <./sim25
+jul16_scatter_med_sp_distint.pdf>]
+<sim25jul16_scatter_var_distpos.pdf, id=548, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_var_distpos.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_var_distpos.pdf>
+Package pdftex.def Info: sim25jul16_scatter_var_distpos.pdf used on input line 
+270.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_var_distpos.pdf, id=549, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_var_distpos.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_var_distpos.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_var_distpos.pdf used on input l
+ine 271.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_var_distpos_maior.pdf, id=550, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_var_distpos_maior.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_var_distpos_maior.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_var_distpos_maior.pdf used on i
+nput line 272.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_var_distint.pdf, id=551, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_var_distint.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_var_distint.pdf>
+Package pdftex.def Info: sim25jul16_scatter_var_distint.pdf used on input line 
+273.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_var_distint.pdf, id=552, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_var_distint.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_var_distint.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_var_distint.pdf used on input l
+ine 274.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim25jul16_scatter_res_var_distint_maior.pdf, id=553, 433.62pt x 433.62pt>
+File: sim25jul16_scatter_res_var_distint_maior.pdf Graphic file (type pdf)
+
+<use sim25jul16_scatter_res_var_distint_maior.pdf>
+Package pdftex.def Info: sim25jul16_scatter_res_var_distint_maior.pdf used on i
+nput line 275.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--276
+
+ []
+
+[50 <./sim25jul16_scatter_res_med_sp_distint.pdf>] [51 <./sim25jul16_scatter_va
+r_distpos.pdf>] [52 <./sim25jul16_scatter_res_var_distpos.pdf>] [53 <./sim25jul
+16_scatter_res_var_distpos_maior.pdf>] [54 <./sim25jul16_scatter_var_distint.pd
+f>] [55 <./sim25jul16_scatter_res_var_distint.pdf>]
+<sim27jul16_scatter_media_distpos.pdf, id=603, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_media_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_media_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_media_distpos.pdf used on input lin
+e 280.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_med_distpos.pdf, id=604, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_med_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_med_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_med_distpos.pdf used on input l
+ine 281.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_media_distint.pdf, id=605, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_media_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_media_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_media_distint.pdf used on input lin
+e 282.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_med_distint.pdf, id=606, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_med_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_med_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_med_distint.pdf used on input l
+ine 283.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--284
+
+ []
+
+[56 <./sim25jul16_scatter_res_var_distint_maior.pdf>] [57 <./sim27jul16_scatter
+_media_distpos.pdf>] [58 <./sim27jul16_scatter_res_med_distpos.pdf>] [59 <./sim
+27jul16_scatter_media_distint.pdf>]
+<sim27jul16_scatter_media_sp_distpos.pdf, id=640, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_media_sp_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_media_sp_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_media_sp_distpos.pdf used on input 
+line 285.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_med_sp_distpos.pdf, id=641, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_med_sp_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_med_sp_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_med_sp_distpos.pdf used on inpu
+t line 286.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_media_sp_distint.pdf, id=642, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_media_sp_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_media_sp_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_media_sp_distint.pdf used on input 
+line 287.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_med_sp_distint.pdf, id=643, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_med_sp_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_med_sp_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_med_sp_distint.pdf used on inpu
+t line 288.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 285--289
+
+ []
+
+[60 <./sim27jul16_scatter_res_med_distint.pdf>] [61 <./sim27jul16_scatter_media
+_sp_distpos.pdf>] [62 <./sim27jul16_scatter_res_med_sp_distpos.pdf>] [63 <./sim
+27jul16_scatter_media_sp_distint.pdf>]
+<sim27jul16_scatter_var_distpos.pdf, id=677, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_var_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_var_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_var_distpos.pdf used on input line 
+290.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_var_distpos.pdf, id=678, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_var_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_var_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_var_distpos.pdf used on input l
+ine 291.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_var_distpos_maior.pdf, id=679, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_var_distpos_maior.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_var_distpos_maior.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_var_distpos_maior.pdf used on i
+nput line 292.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_var_distint.pdf, id=680, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_var_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_var_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_var_distint.pdf used on input line 
+293.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_var_distint.pdf, id=681, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_var_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_var_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_var_distint.pdf used on input l
+ine 294.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_var_distint_maior.pdf, id=682, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_var_distint_maior.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_var_distint_maior.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_var_distint_maior.pdf used on i
+nput line 295.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--296
+
+ []
+
+[64 <./sim27jul16_scatter_res_med_sp_distint.pdf>] [65 <./sim27jul16_scatter_va
+r_distpos.pdf>] [66 <./sim27jul16_scatter_res_var_distpos.pdf>] [67 <./sim27jul
+16_scatter_res_var_distpos_maior.pdf>] [68 <./sim27jul16_scatter_var_distint.pd
+f>] [69 <./sim27jul16_scatter_res_var_distint.pdf>]
+<sim27jul16_scatter_var_sp_distpos.pdf, id=732, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_var_sp_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_var_sp_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_var_sp_distpos.pdf used on input li
+ne 297.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_var_sp_distpos.pdf, id=733, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_var_sp_distpos.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_var_sp_distpos.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_var_sp_distpos.pdf used on inpu
+t line 298.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_var_sp_distint.pdf, id=734, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_var_sp_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_var_sp_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_var_sp_distint.pdf used on input li
+ne 299.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+<sim27jul16_scatter_res_var_sp_distint.pdf, id=735, 433.62pt x 433.62pt>
+File: sim27jul16_scatter_res_var_sp_distint.pdf Graphic file (type pdf)
+
+<use sim27jul16_scatter_res_var_sp_distint.pdf>
+Package pdftex.def Info: sim27jul16_scatter_res_var_sp_distint.pdf used on inpu
+t line 300.
+(pdftex.def)             Requested size: 398.33858pt x 398.3596pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--301
+
+ []
+
+[70 <./sim27jul16_scatter_res_var_distint_maior.pdf>] [71 <./sim27jul16_scatter
+_var_sp_distpos.pdf>] [72 <./sim27jul16_scatter_res_var_sp_distpos.pdf>]
+[73 <./sim27jul16_scatter_var_sp_distint.pdf>] [74 <./sim27jul16_scatter_res_va
+r_sp_distint.pdf>] (./ana_explo.aux) ) 
+Here is how much of TeX's memory you used:
+ 3267 strings out of 493014
+ 53640 string characters out of 6133351
+ 105055 words of memory out of 5000000
+ 6695 multiletter control sequences out of 15000+600000
+ 13205 words of font info for 39 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,6n,26p,866b,203s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts
+/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2016/texmf-dist/fonts/t
+ype1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
+/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
+ublic/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1728.pfb>
+Output written on ana_explo.pdf (74 pages, 6287466 bytes).
+PDF statistics:
+ 800 PDF objects out of 1000 (max. 8388607)
+ 541 compressed objects within 6 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 366 words of extra memory for PDF output out of 10000 (max. 10000000)
+

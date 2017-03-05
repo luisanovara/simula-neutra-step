@@ -6,9 +6,8 @@ require(doMC)
 # Pacote para rodar simula.neutra.trade
 require(truncnorm)
 # Script com codigo de simula.neutra.trade
-source("simula.neutra.trade_LEVE.R")
-# Dados do hipercubo
-load("dados_arredond_hipercubo_08jun16.RData")
+source("simula.neutra.trade_LEVE_sem_banco_sem_papi_rapido.R")
+
 
 simula.parallel <- function(replica) {
   res <- simula.neutra.trade(S = 1,

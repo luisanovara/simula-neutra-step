@@ -1,0 +1,302 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%encoding
+%--------------------------------------
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%--------------------------------------
+ 
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+
+%SetFonts
+\title{Análise exploratória dos dados}
+\author{Luísa Novara}
+\date{}
+
+\begin{document}
+\maketitle
+
+% Histogramas de cada simulação
+\section{Histogramas do número de propágulos/ciclo produzidos pelos indivíduos após 5 000 gerações}
+
+\subsection{Simulações com 1 espécie e 'taxa de mutação' maior que 0}
+\includegraphics[width=14cm]{sim21jul16_hist_prop_nger5000}\\
+
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0}
+\includegraphics[width=14cm]{sim25jul16_hist_prop_nger5000}\\
+
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' maior que 	0}
+\includegraphics[width=14cm]{sim27jul16_hist_prop_nger5000}\\
+
+% Histogramas das variáveis-resposta
+\section{Histogramas das variáveis-resposta}
+
+%% Simulações com 1 espécie e 'taxa de mutação' maior que 0
+\subsection{Simulações com 1 espécie e 'taxa de mutação' maior que 0}
+\includegraphics[width=14cm]{sim21jul16_hist_variaveis_med_dist}\\
+Quando a intensidade e a frequência de distúrbios é baixa, as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais baixas e diferem pouco entre simulações. Quando a intensidade e a frequência de distúrbios é alta, as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais altas e apresentam maior variancia entre simulações.
+
+\includegraphics[width=14cm]{sim21jul16_hist_variaveis_med}\\
+
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_dif_med_dist}\\
+%%Quando a intensidade e a frequência de distúrbios é baixa, as diferenças entre as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações e os valores iniciais dessas estratégias são mais baixas (mais negativas), uma vez que os valores finais são menores . Quando a intensidade e a frequência de distúrbios é alta, as diferenças entre as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações e os valores iniciais dessas estratégias são mais altas. Ainda assim, a maior parte das diferenças são negativas para o grupo sob efeito de distúrbios intensos e frequentes, o que indica que a média de propágulos/ciclo para a qual convergem os indivíduos é menor do que o valor intermediário de 10 000 propágulos/ciclo. Isso pode ser observado no gráfico anterior. 
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_raz_med_dist}\\
+%%Como os valores para os quais convergem as estratégias são baixos, muitas das diferenças relativas giram em torno de -1. TENTAR ENTENDER MELHOR
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_mediana_dist}\\\
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_moda_dist}\\
+
+\includegraphics[width=14cm]{sim21jul16_hist_variaveis_var_dist}\\
+Quando a intensidade e a frequência de distúrbios é alta, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são sempre altas. Já quando a intensidade e a frequência de distúrbios é baixa, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são variáveis, podendo ser baixas, intermediárias ou altas. É provável que as variâncias baixas sejam referentes às distribuições de estratégia assimétricas próximas ao limite inferior (1 propágulo/ciclo) - esta hipótese é fortalecida pela curva referente à intensidades/frequências intermediárias de distúrbio. 
+
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_coef_var_dist}\\
+%%Quando a intensidade e a frequência de distúrbios é baixa, os coeficientes de variação das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais altos e apresentam variância maior entre simulações. Já quando a intensidade e a frequência de distúrbios é alta, os coeficientes de variação das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são sempre baixos. Logo, as variâncias das estratégias nas populações aumentam com o distúrbio, mas aumentam proporcionalmente menos do que as médias das estratégias. Ou ainda: como com regime de distúrbio fraco há variâncias altas (além das baixas), o coeficiente de variação tende a ser maior.
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_ass_dist}\\
+%%Quando a intensidade e a frequência de distúrbios é baixa, há proporcionalmente mais indivíduos que produzem menor número de propágulos/ciclo em cada simulação, tornando a distribuição assimétrica (truncada no limite inferior de 1 propágulo/ciclo). Quando a intensidade e a frequência de distúrbios é alta, a distribuição de estratégias nas simulações é simétrica (com o limite superior, de 20 000 propágulos/ciclo, distante da média das distribuições).
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_curt_dist}\\
+%%Quando a intensidade e a frequência de distúrbios é baixa, a maior parte das simulações é mesocúrtica, mas há algumas que são leptocúrticas, provavelmente aquelas que estão mais próximas do limite inferior do número de propágulos/ciclo. Quando a intensidade e a frequência de distúrbios é alta, a distribuição das simulações é mesocúrtica.
+%\includegraphics[width=14cm]{sim21jul16_hist_variaveis_coef_pear_dist}\\
+%%Independentemente da intensidade e frequência de distúrbios, o coeficiente de Pearson de todas as simulações ficou abaixo de 1,5, valores não conclusivos quanto à modalidade das distribuições. Entretanto, a partir dos histogramas de cada simulação (gráfico 1.1), é possível observar que as distribuições são unimodais.
+
+%% Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0}
+
+\includegraphics[width=14cm]{sim25jul16_hist_variaveis_perda_dist}\\
+A perda de espécies é mais lenta quando a intensidade e a frequência de distúrbios é alta. TENTAR ENTENDER MELHOR.
+
+\includegraphics[width=14cm]{sim25jul16_hist_variaveis_med_dist}\\
+Quando a intensidade e a frequência de distúrbios é baixa, as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais baixas. Quando a intensidade e a frequência de distúrbios é alta, as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais altas. Quando comparadas às distribuições da primeira bateria de simulações, estas estão mais deslocadas à produção de valores mais altos de propágulos. TENTAR ENTENDER MELHOR.
+
+\includegraphics[width=14cm]{sim25jul16_hist_variaveis_med}\\
+
+\includegraphics[width=14cm]{sim25jul16_hist_variaveis_med_sp_dist}\\
+Valores muito próximos do gráfico que não considera as espécies. Isso pode se dar porque as espécies que restam são todas muito parecidas entre si.
+
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_dif_med_dist}\\
+%%Quando a intensidade e a frequência de distúrbios é baixa, as diferenças entre as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações e os valores iniciais dessas estratégias são mais baixas (negativas), uma vez que os valores finais são menores. Quando a intensidade e a frequência de distúrbios é alta, as diferenças entre as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações e os valores iniciais dessas estratégias são mais altas. Nesta segunda bateria de simulações, a maior parte das diferenças são positivas para o grupo sob efeito de distúrbios intensos e frequentes, o que indica que a média de propágulos/ciclo para a qual convergem os indivíduos é maior do que o valor intermediário de 10 000 propágulos/ciclo. Isso pode ser observado no gráfico anterior.
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_raz_med_dist}\\
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_mediana_dist}\\\
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_moda_dist}\\
+
+\includegraphics[width=14cm]{sim25jul16_hist_variaveis_var_dist}\\
+Gráfico com todas as simulações:
+Quando a intensidade e a frequência de distúrbios é baixa, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são menores. Quando a intensidade e a frequência de distúrbios é alta, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são maiores. É esperado que todas as simulações que terminaram com apenas uma espécie tenham variância 0. Logo, para saber se o distúrbio apresenta efeito sobre a variância, o próximo gráfico apresenta apenas as simulações com mais de uma espécie ao final.
+
+\includegraphics[width=14cm]{sim25jul16_hist_variaveis_var_dist_>1sp}\\
+Gráfico com as simulações cuja riqueza final é maior do que 1:
+Quando a intensidade e a frequência de distúrbios é baixa, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são menores. Quando a intensidade e a frequência de distúrbios é alta, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são maiores. Ainda assim, como a perda de espécies é mais lenta quanto maior a intensidade e a frequência de distúrbios, é possível que a variância aumente como consequência (dado que, neste segundo cenário, para ter variância maior que 0, deve haver mais uma espécie).
+
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_coef_var_dist}\\
+%%Gráfico com todas as simulações:
+%%Quando a intensidade e a frequência de distúrbios é baixa, os coeficientes de variação das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são menores. Quando a intensidade e a frequência de distúrbios é alta, os coeficientes de variação das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são maiores.
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_coef_var_dist_>1sp}\\
+%%Gráfico com as simulações cuja riqueza final é maior do que 1:
+%%Independentemente do regime de distúrbios, os coeficientes de variação são semelhantes.
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_ass_dist}\\
+%%Independentemente do regime de distúrbios, as assimetrias são semelhantes e por volta de 0 (i.e., as distribuições são simétricas).
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_curt_dist}\\
+%%Independentemente do regime de distúrbios, os excessos de curtose são semelhantes e por volta de 0 (i.e., as distribuições são mesocúrticas).
+%\includegraphics[width=14cm]{sim25jul16_hist_variaveis_coef_pear_dist}\\
+%%Independentemente do regime de distúrbios, a maioria das distribuições apresenta coeficiente de Pearson maior que 1.5, o que indica multimodalidade. Isso é esperado dado que não há variação intraespecífica.
+
+%% Simulações com mais de 1 espécie e 'taxa de mutação' maior que 0
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' maior que 	0}
+
+\includegraphics[width=14cm]{sim27jul16_hist_variaveis_perda_dist}\\
+A perda de espécies é mais lenta quando a intensidade e a frequência de distúrbios é alta. Entretanto, esse efeito parece ser mais fraco do que no caso com mutação igual a zero. TENTAR ENTENDER MELHOR.
+
+\includegraphics[width=14cm]{sim27jul16_hist_variaveis_med_dist}\\
+(semelhante à primeira bateria) Quando a intensidade e a frequência de distúrbios é baixa, as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais baixas e diferem pouco entre simulações. Quando a intensidade e a frequência de distúrbios é alta, as médias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são mais altas e apresentam variância maior entre simulações.
+
+\includegraphics[width=14cm]{sim27jul16_hist_variaveis_med_sp_dist}\\
+
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_dif_med_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_dif_med_sp_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_raz_med_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_raz_med_sp_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_mediana_dist}\\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_mediana_sp_dist}\\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_moda_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_moda_sp_dist}\\
+
+\includegraphics[width=14cm]{sim27jul16_hist_variaveis_var_dist}\\
+(semelhante a uma mistura da primeira e da segunda baterias) Quando a intensidade e a frequência de distúrbios é alta, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são sempre altas. Já quando a intensidade e a frequência de distúrbios é baixa, as variâncias das estratégias de vida (número de propágulos/ciclo) na população após 5000 gerações são variáveis, podendo ser baixas, intermediárias ou altas (mas não tão altas!). É provável que as variâncias baixas sejam referentes às distribuições de estratégia assimétricas próximas ao limite inferior (1 propágulo/ciclo) - esta hipótese é fortalecida pela curva referente à intensidades/frequências intermediárias de distúrbio. As variâncias relativamente super-altas também estiveram presentes na segunda bateria de simulações.
+
+\includegraphics[width=14cm]{sim27jul16_hist_variaveis_var_sp_dist}\\
+
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_coef_var_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_coef_var_sp_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_ass_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_ass_sp_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_curt_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_curt_sp_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_coef_pear_dist}\\
+%\includegraphics[width=14cm]{sim27jul16_hist_variaveis_coef_pear_sp_dist}\\
+
+% Coeficientes de correlação parcial entre os parâmetros iniciais e as variáveis-resposta
+\section{Coeficientes de correlação parcial entre os parâmetros iniciais e as variáveis-resposta}
+
+%% Simulações com 1 espécie e 'taxa de mutação' maior que 0
+\subsection{Simulações com 1 espécie e 'taxa de mutação' maior que 0}
+
+\includegraphics[width=14cm]{sim21jul16_prcc_med}\\
+A intensidade e a frequência de distúrbios estão correlacionadas positivamente com a média do número de propágulos/ciclo das simulações.
+
+%\includegraphics[width=14cm]{sim21jul16_prcc_dif_med}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas positivamente com a diferença entre a média do número de propágulos/ciclo das simulações e o valor inicial de propágulos, uma vez que a média está correlacionada positivamente também.
+%\includegraphics[width=14cm]{sim21jul16_prcc_raz_med}\\
+%%TENTAR ENTENDER MELHOR
+%\includegraphics[width=14cm]{sim21jul16_prcc_mediana}\\
+%\includegraphics[width=14cm]{sim21jul16_prcc_moda}\\
+
+\includegraphics[width=14cm]{sim21jul16_prcc_var}\\
+A intensidade e a frequência de distúrbios estão correlacionadas positivamente com a variância do número de propágulos/ciclo das simulações. Entretanto, considerando os histogramas, essas correlações parecem ser consequência de haver um limite inferior em relação ao número de propágulos/ciclo (1) que é atingido quando os distúrbios são baixos, fazendo com que as distribuições próximas do limite inferior tenham variância muito baixa. Se essa hipótese estiver correta, veríamos que a relação entre a frequência de distúrbios e a variância não é linear, com valores baixos de variância apenas para aquelas distribuições mais próximas do limite inferior. Isso foi observado nos scatterplots já apresentados e nos seguintes gráficos de análise exploratória: 
+
+\includegraphics[width=18cm]{sim21jul16_hist_prop_nger5000_dist_baixo_2}\\
+Em azul, as simulações com distúrbio baixo abaixo de 100 mil eventos (cujas variâncias eram menores de acordo com o primeiro scatterplot). Em rosa, as simulações com distúrbio baixo entre 100 mil e 150 mil eventos. 
+
+\includegraphics[width=18cm]{sim21jul16_hist_prop_nger5000_dist_baixo_2_2}\\
+\includegraphics[width=18cm]{sim21jul16_hist_prop_nger5000_dist_baixo_alto}\\
+Em azul, as simulações com distúrbio baixo abaixo de 100 mil eventos (cujas variâncias eram menores de acordo com o primeiro scatterplot). Em verde, as simulações com distúrbio baixo entre 100 mil e 150 mil eventos. Em rosa, as simulações com distúrbio alto. 
+
+%\includegraphics[width=14cm]{sim21jul16_prcc_coef_var}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas negativamente com o coeficiente de variação do número de propágulos/ciclo das simulações, também em função das distribuições de distúrbio baixo que estão próximas ao limite inferior.
+%\includegraphics[width=14cm]{sim21jul16_prcc_ass}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas negativamente com a assimetria do número de propágulos/ciclo das simulações. Isso quer dizer que a distribuição de estratégias apresenta maior concentração de valores baixos de propágulos/ciclo quando a intensidade e a frequência de distúrbios é baixa, provavelmente em função da proximidade com o limite inferior de produção (1 propágulo/ciclo).
+%\includegraphics[width=14cm]{sim21jul16_prcc_curt}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas negativamente com o excesso de curtose do número de propágulos/ciclo das simulações. Associado com os histogramas, isso quer dizer que a distribuição de estratégias é leptocúrtica quando a intensidade e a frequência de distúrbios é baixa, provavelmente em função da proximidade com o limite inferior de produção (1 propágulo/ciclo).
+%\includegraphics[width=14cm]{sim21jul16_prcc_coef_pear}\\
+
+%% Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0}
+
+\includegraphics[width=14cm]{sim25jul16_prcc_riqfin}\\
+
+\includegraphics[width=14cm]{sim25jul16_prcc_perda}\\
+A intensidade e a frequência de distúrbios estão correlacionadas com a perda de espécies de forma que quanto maior a intensidade e a frequência dos distúrbios, menor a perda.
+O número inicial de espécies está correlacionado com a perda de espécies de forma que quanto maior o número inicial de espécies, maior a perda de espécies. Isso pode ocorrer porque quanto maior o número de espécies, menor a abundância de cada uma delas e, então, mais sujeitas à extinção estocástica. 
+
+\includegraphics[width=14cm]{sim25jul16_prcc_med}\\
+A intensidade e a frequência de distúrbios estão correlacionadas positivamente com a média do número de propágulos/ciclo. 
+
+%\includegraphics[width=14cm]{sim25jul16_prcc_dif_med}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas positivamente com a diferença absoluta entre a média do número de propágulos/ciclo das simulações e o valor inicial de propágulos, uma vez que a média está correlacionada positivamente também.
+%\includegraphics[width=14cm]{sim25jul16_prcc_raz_med}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas positivamente com a diferença relativa entre a média do número de propágulos/ciclo das simulações e o valor inicial de propágulos, uma vez que a média está correlacionada positivamente também.
+%\includegraphics[width=14cm]{sim25jul16_prcc_mediana}\\
+%\includegraphics[width=14cm]{sim25jul16_prcc_moda}\\
+
+\includegraphics[width=14cm]{sim25jul16_prcc_var}\\
+Gráfico com todas as simulações:
+A frequência e a intensidade de distúrbios estão correlacionadas positivamente com a variância do número de propágulos/ciclo.
+
+\includegraphics[width=14cm]{sim25jul16_prcc_var_>1sp}\\
+Gráfico com as simulações cuja riqueza final é maior do que 1:
+A frequência e a intensidade de distúrbios estão correlacionadas positivamente com a variância do número de propágulos/ciclo. O número inicial de espécies está correlacionado negativamente com a variância do número de propágulos/ciclo. Considerando que sabemos que a correlação parcial entre o número inicial de espécies e o número final de espécies é positiva (i.e., se a comunidade começa com mais espécies, ela termina com mais espécies, ainda que ela perca proporcionalmente mais espécies que uma comunidade com menor riqueza inicial) podemos concluir que quanto maior o número inicial de espécies, mais parecidas são as espécies que sobram ao final (dado que a variância é menor)? Não, porque nao medimos a sobreposicao entre especies para afirmar que "as especies sao mais ou menos parecidas". Mas podemos afirmar que quanto maior a riqueza inicial, mais parecidos sao os individuos da comunidade entre si. 
+TENTAR EXPLICAR MELHOR.
+
+%\includegraphics[width=14cm]{sim25jul16_prcc_coef_var}\\
+%%A intensidade e a frequência de distúrbios estão correlacionadas positivamente com o coeficiente de variação do número de propágulos/ciclo das simulações.
+%\includegraphics[width=14cm]{sim25jul16_prcc_coef_var_>1sp}\\
+%%A intensidade e a frequência de distúrbios não estão correlacionadas com o coeficiente de variação do número de propágulos/ciclo das simulações.
+%\includegraphics[width=14cm]{sim25jul16_prcc_ass}\\
+%%A intensidade e a frequência de distúrbios e o número inicial de espécies não estão correlacionadas com a assimetria do número de propágulos/ciclo das simulações.
+%\includegraphics[width=14cm]{sim25jul16_prcc_curt}\\
+%%A intensidade e a frequência de distúrbios e o número inicial de espécies não estão correlacionadas com o excesso de curtose do número de propágulos/ciclo das simulações.
+%\includegraphics[width=14cm]{sim25jul16_prcc_coef_pear}\\
+
+%% Simulações com mais de 1 espécie e 'taxa de mutação' maior que 0
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' maior que 	0}
+
+\includegraphics[width=14cm]{sim27jul16_prcc_riqfin}\\
+
+\includegraphics[width=14cm]{sim27jul16_prcc_perda}\\
+
+\includegraphics[width=14cm]{sim27jul16_prcc_med}\\
+
+%\includegraphics[width=14cm]{sim27jul16_prcc_dif_med}\\
+%\includegraphics[width=14cm]{sim27jul16_prcc_raz_med}\\
+%\includegraphics[width=14cm]{sim27jul16_prcc_mediana}\\\
+%\includegraphics[width=14cm]{sim27jul16_prcc_moda}\\
+
+\includegraphics[width=14cm]{sim27jul16_prcc_var}\\
+
+%\includegraphics[width=14cm]{sim27jul16_prcc_coef_var}\\
+%\includegraphics[width=14cm]{sim27jul16_prcc_ass}\\
+%\includegraphics[width=14cm]{sim27jul16_prcc_curt}\\
+%\includegraphics[width=14cm]{sim27jul16_prcc_coef_pear}\\
+
+% Scatterplots brutos e sem efeito de outras variáveis
+\section{Scatterplots}
+
+%% Simulações com 1 espécie e 'taxa de mutação' maior que 0
+\subsection{Simulações com 1 espécie e 'taxa de mutação' maior que 0}
+
+\includegraphics[width=14cm]{sim21jul16_scatter_media_distpos}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_res_media_distpos}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_media_distint}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_res_media_distint}\\
+
+\includegraphics[width=14cm]{sim21jul16_scatter_var_distpos}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_res_var_distpos}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_res_var_distpos_maior}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_var_distint}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_res_var_distint}\\
+\includegraphics[width=14cm]{sim21jul16_scatter_res_var_distint_maior}\\
+
+
+%% Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' igual a 0}
+
+\includegraphics[width=14cm]{sim25jul16_scatter_media_distpos}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_med_distpos}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_media_distint}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_med_distint}\\
+
+\includegraphics[width=14cm]{sim25jul16_scatter_med_sp_distpos}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_med_sp_distpos}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_med_sp_distint}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_med_sp_distint}\\
+
+\includegraphics[width=14cm]{sim25jul16_scatter_var_distpos}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_var_distpos}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_var_distpos_maior}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_var_distint}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_var_distint}\\
+\includegraphics[width=14cm]{sim25jul16_scatter_res_var_distint_maior}\\
+
+%% Simulações com mais de 1 espécie e 'taxa de mutação' maior que 0
+\subsection{Simulações com mais de 1 espécie e 'taxa de mutação' maior que 	0}
+
+\includegraphics[width=14cm]{sim27jul16_scatter_media_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_med_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_media_distint}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_med_distint}\\
+
+\includegraphics[width=14cm]{sim27jul16_scatter_media_sp_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_med_sp_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_media_sp_distint}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_med_sp_distint}\\
+
+\includegraphics[width=14cm]{sim27jul16_scatter_var_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_var_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_var_distpos_maior}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_var_distint}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_var_distint}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_var_distint_maior}\\
+
+\includegraphics[width=14cm]{sim27jul16_scatter_var_sp_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_var_sp_distpos}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_var_sp_distint}\\
+\includegraphics[width=14cm]{sim27jul16_scatter_res_var_sp_distint}\\
+
+\end{document}  
