@@ -1,0 +1,180 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+During startup - Warning message:
+Setting LC_CTYPE failed, using "C" 
+> ### Script para paralelização no servidor Ubuntu (Ale)
+> 
+> # Pacotes para paralelizacao
+> require(plyr)
+Loading required package: plyr
+> require(doMC)
+Loading required package: doMC
+Loading required package: foreach
+Loading required package: iterators
+Loading required package: parallel
+> # Pacote para rodar codigo
+> require(truncnorm)
+Loading required package: truncnorm
+> # Script com codigo de simula.neutra.trade
+> source("simula.neutra.trade_LEVE_sem_banco_sem_papi_rapido.R")
+> # Dados do hipercubo
+> load("dados_arredond_hipercubo_04mar17.RData")
+> dados <- dados3_04mar17
+> 
+> simula.parallel <- function(replica) {
++   res <- simula.neutra.trade(S = dados[replica,1],
++                              j = round(20000/dados[replica,1]),
++                              xi0 = rep(seq(1,20000,length.out = dados[replica,1]),each=round(20000/dados[replica,1])),
++                              X = 20000,
++                              dp = 500,
++                              dist.pos = if(dados[replica,2]>0 & dados[replica,2]<75e3) round(seq(from = 75e3/(dados[replica,2]+1), to = 75e3-(75e3/(dados[replica,2]+1)), length.out = dados[replica,2])) else if(dados[replica,2]==0) NULL else seq(1,75e3,1),
++                              dist.int = dados[replica,3],
++                              ciclo = 75e3,
++                              step = 100
++   )
++   return(res)
++ }
+> 
+> ######## doMC e plyr
+> registerDoMC(8)
+> 
+> for (i in (seq(1,1000,8)[51:75]))
++ {
++   replica.sim <- as.list(i:(i+7))
++   resultados <- llply(.data = replica.sim, .fun = simula.parallel, .parallel = TRUE)
++   save(resultados,file=paste("resultados4mar17_dp500_+ind_2tentativa_",i,"-",i+7,".RData",sep=""))
++ }
+Tempo de processamento:  31.76 min
+Tempo de processamento:  33.96 min
+Tempo de processamento:  36.96 min
+Tempo de processamento:  37.75 min
+Tempo de processamento:  40.33 min
+Tempo de processamento:  43.12 min
+Tempo de processamento:  43.76 min
+Tempo de processamento:  44.44 min
+Tempo de processamento:  27.63 min
+Tempo de processamento:  29.04 min
+Tempo de processamento:  37.03 min
+Tempo de processamento:  46.11 min
+Tempo de processamento:  46.47 min
+Tempo de processamento:  47.3 min
+Tempo de processamento:  49.02 min
+Tempo de processamento:  86.63 min
+Tempo de processamento:  40.3 min
+Tempo de processamento:  47.25 min
+Tempo de processamento:  48.19 min
+Tempo de processamento:  48.45 min
+Tempo de processamento:  48.88 min
+Tempo de processamento:  49.06 min
+Tempo de processamento:  60.11 min
+Tempo de processamento:  27.75 min
+Tempo de processamento:  35.44 min
+Tempo de processamento:  36.15 min
+Tempo de processamento:  36.66 min
+Tempo de processamento:  39.29 min
+Tempo de processamento:  39.92 min
+Tempo de processamento:  40.88 min
+Tempo de processamento:  45.64 min
+Tempo de processamento:  29.16 min
+Tempo de processamento:  30.14 min
+Tempo de processamento:  30.57 min
+Tempo de processamento:  32.12 min
+Tempo de processamento:  32.83 min
+Tempo de processamento:  33.28 min
+Tempo de processamento:  42.78 min
+Tempo de processamento:  49.45 min
+Tempo de processamento:  45 min
+Tempo de processamento:  53.4 min
+Tempo de processamento:  53.98 min
+Tempo de processamento:  59.53 min
+Tempo de processamento:  59.99 min
+Tempo de processamento:  60.35 min
+Tempo de processamento:  61.63 min
+Tempo de processamento:  30.97 min
+Tempo de processamento:  31.8 min
+Tempo de processamento:  33.8 min
+Tempo de processamento:  33.85 min
+Tempo de processamento:  36.98 min
+Tempo de processamento:  37.88 min
+Tempo de processamento:  41.8 min
+Tempo de processamento:  46.3 min
+Tempo de processamento:  33.63 min
+Tempo de processamento:  35.27 min
+Tempo de processamento:  37.67 min
+Tempo de processamento:  46.51 min
+Tempo de processamento:  47.54 min
+Tempo de processamento:  47.63 min
+Tempo de processamento:  48.72 min
+Tempo de processamento:  51.76 min
+Tempo de processamento:  51.2 min
+Tempo de processamento:  52.73 min
+Tempo de processamento:  52.8 min
+Tempo de processamento:  57.24 min
+Tempo de processamento:  62.64 min
+Tempo de processamento:  65.52 min
+Tempo de processamento:  67.26 min
+Tempo de processamento:  51.05 min
+Tempo de processamento:  53.06 min
+Tempo de processamento:  53.4 min
+Tempo de processamento:  58.65 min
+Tempo de processamento:  65.98 min
+Tempo de processamento:  71 min
+Tempo de processamento:  72.71 min
+Tempo de processamento:  28.91 min
+Tempo de processamento:  32.54 min
+Tempo de processamento:  32.92 min
+Tempo de processamento:  33.61 min
+Tempo de processamento:  36.45 min
+Tempo de processamento:  36.5 min
+Tempo de processamento:  36.98 min
+Tempo de processamento:  40.95 min
+Tempo de processamento:  52.4 min
+Tempo de processamento:  53.45 min
+Tempo de processamento:  54.09 min
+Tempo de processamento:  59.46 min
+Tempo de processamento:  61.27 min
+Tempo de processamento:  64.78 min
+Tempo de processamento:  73.04 min
+Tempo de processamento:  77.32 min
+Tempo de processamento:  79.15 min
+Tempo de processamento:  79.6 min
+Tempo de processamento:  80.01 min
+Tempo de processamento:  93.27 min
+Tempo de processamento:  95.37 min
+Tempo de processamento:  129.75 min
+Tempo de processamento:  22.07 min
+Tempo de processamento:  27.63 min
+Tempo de processamento:  31.48 min
+Tempo de processamento:  32.11 min
+Tempo de processamento:  34.2 min
+Tempo de processamento:  34.37 min
+Tempo de processamento:  43.48 min
+Tempo de processamento:  44.62 min
+Tempo de processamento:  29.19 min
+Tempo de processamento:  31.33 min
+Tempo de processamento:  32.28 min
+Tempo de processamento:  39.89 min
+Tempo de processamento:  41.07 min
+Tempo de processamento:  44.43 min
+Tempo de processamento:  51.22 min
+Tempo de processamento:  189.8 min
+Killed

@@ -76,3 +76,6 @@ for(i in 1:length(simulacoes_pos_comite_dp100_output)) {
   sucesso_sim[i]<- length(simulacoes_pos_comite_dp100_output[[i]])
 }
 sum(sucesso_sim==1)
+
+
+#####
