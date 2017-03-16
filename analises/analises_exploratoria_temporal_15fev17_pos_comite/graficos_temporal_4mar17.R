@@ -28,7 +28,6 @@ dist_classes <- c()
 dist_classes[dist_classe_1] <- 203
 dist_classes[dist_classe_2] <- 183
 dist_classes[dist_classe_3] <- 153
-
 dist_classes3 <- c()
 dist_classes3[dist_classe_1] <- 59 #salmao
 dist_classes3[dist_classe_2] <- 27 #azul
@@ -130,11 +129,25 @@ axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""),cex.axis=0.8
 axis(2,at=c(-1e9,0,1.25e9,2.5e9,3.75e9,5e9,6e9),labels=c("",0,expression(text=paste("1,25x10"^"9",sep="")),expression(text=paste("2,5x10"^"9",sep="")),expression(text=paste("3,75x10"^"9",sep="")),expression(text=paste("5x10"^"9",sep="")),""),las=1,cex.axis=0.7)
 
 
+# simulacoes dp 500 e ntotal 20 mil
 
+#### carregando dados output
+# media
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_4mar17_dp500_mais_ind_media_temporal.RData")
+# ss total
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_4mar17_dp500_mais_ind_ss_total_temporal.RData")
+# ss inter
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_4mar17_dp500_mais_ind_ss_inter_temporal.RData")
+# riqueza
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_4mar17_dp500_mais_ind_riqueza_temporal.RData")
+# mortes cumulativas
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_4mar17_dp500_mais_ind_mortes_cumulativas_temporal.RData")
 
-
+#### carregando dados disturbio
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_4mar17_dp500_mais_ind_ss_inter_temporal.RData")
+#### arrumando dados disturbio
 bat_indice_dist <- dados3_04mar17[,2]*dados3_04mar17[,3]
-
+#quantile(bat_indice_dist,probs=c(0.33,0.66))
 dist_classe_1_mais <- which(bat_indice_dist<7450.809)
 dist_classe_2_mais <- which(bat_indice_dist>=7450.809 & bat_indice_dist<=22681.605)
 dist_classe_3_mais <- which(bat_indice_dist>22681.605)
@@ -142,12 +155,48 @@ dist_classes_mais <- c()
 dist_classes_mais[dist_classe_1_mais] <- 203
 dist_classes_mais[dist_classe_2_mais] <- 183
 dist_classes_mais[dist_classe_3_mais] <- 153
-matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
-matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,dist_classes_mais==203],type="l",col=alpha(colors()[203],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
-matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,dist_classes_mais==183],type="l",col=alpha(colors()[183],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
-matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,dist_classes_mais==153],type="l",col=alpha(colors()[153],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
 
-matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
+#### GRAFICOS
+require(ggplot2)
+
+### media e riqueza
+
+matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
+matplot(y=t(pos_comite_dp500_mais_ind_media_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
+#matplot(y=t(pos_comite_dp500_mais_ind_media_temporal)[1:751,dist_classes_mais==203],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,dist_classes_mais==203],type="l",col=alpha(colors()[203],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
+#matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,dist_classes_mais==183],type="l",col=alpha(colors()[183],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
+#matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:751,dist_classes_mais==153],type="l",col=alpha(colors()[153],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
+
+#geracao 2000 - comparando n total de 5 mil e de 20 mil
+matplot(y=t(pos_comite_dp500_mais_ind_media_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil",xlim=c(0,2000))
+par(new=T)
+matplot(y=t(pos_comite_dp500_mais_ind_riqueza_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",xlim=c(0,2000),axes=F)
+matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 5 mil",xlim=c(0,2000))
+par(new=T)
+matplot(y=t(pos_comite_dp500_riqueza_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",xlim=c(0,2000),axes=F)
+
+matplot(y=t(pos_comite_dp500_1sp_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_1sp_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500, ntotal = 5 mil e 1 sp",xlim=c(0,2000))
+
+#geracao 1000 - comparando n total de 5 mil e de 20 mil
+matplot(y=t(pos_comite_dp500_mais_ind_media_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil",xlim=c(0,1000))
+par(new=T)
+matplot(y=t(pos_comite_dp500_mais_ind_riqueza_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",xlim=c(0,1000),axes=F)
+matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 5 mil",xlim=c(0,1000))
+par(new=T)
+matplot(y=t(pos_comite_dp500_riqueza_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",xlim=c(0,1000),axes=F)
+
+matplot(y=t(pos_comite_dp500_1sp_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_1sp_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500, ntotal = 5 mil e 1 sp",xlim=c(0,1000))
+
+#geracao 800 - comparando n total de 5 mil e de 20 mil
+matplot(y=t(pos_comite_dp500_mais_ind_media_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil",xlim=c(0,800))
+par(new=T)
+matplot(y=t(pos_comite_dp500_mais_ind_riqueza_temporal)[1:751,],x=t(I(pos_comite_dp500_mais_ind_mortes_cumulativas_temporal/20000))[1:751,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",xlim=c(0,800),axes=F)
+matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 5 mil",xlim=c(0,800))
+par(new=T)
+matplot(y=t(pos_comite_dp500_riqueza_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",xlim=c(0,1000),axes=F)
+
+matplot(y=t(pos_comite_dp500_1sp_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_1sp_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500, ntotal = 5 mil e 1 sp",xlim=c(0,1000))
+
 #matplot(t(pos_comite_dp500_media_temporal)[1:101,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
 matplot(t(pos_comite_dp500_mais_ind_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes_mais],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")
 #matplot(t(pos_comite_dp500_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="l",main="Taxa de mutação = 500 e ntotal = 20 mil")

@@ -380,3 +380,34 @@ colnames(dados3_04mar17) <- c("S","dist.pos","dist.int")
 save(uncoupled_hipercubo_04mar17,file="hipercubo_04mar17.RData")
 save(dados_04mar17,file="dados_hipercubo_04mar17.RData")
 save(dados3_04mar17,file="dados_arredond_hipercubo_04mar17.RData")
+
+##########################################################
+################# SIMULACOES 04/03/2017 ##################
+##########################################################
+
+##########################################################
+############## EXTREMO > 1 SP C/ EVOLUCAO ################
+##########################################################
+
+################# LISTANDO OS PARÂMETROS #################
+##################### DA MINHA FUNÇÃO ####################
+factors <- c("S","dist.pos","dist.int")
+############### DEFININDO AS DISTRIBUIÇÕES ###############
+############ DE PROBABILIDADE DOS PARÂMETROS #############
+q <- c("qunif","qunif","qunif")
+################ DEFININDO OS PARÂMETROS #################
+#################### DAS DISTRIBUIÇÕES ###################
+q.arg <- list(list(min=5,max=500),
+              list(min=0,max=30e3),
+              list(min=0,max=1))
+################## RODANDO O HIPERCUBO ###################
+uncoupled_hipercubo_15mar17 <- LHS(NULL, factors, N=1000, q, q.arg) 
+######### ACESSANDO OS VALORES DE INPUT #########
+dados_15mar17<-get.data(uncoupled_hipercubo_15mar17)
+dados2_15mar17<-cbind(round(dados_15mar17[,1]),round(dados_15mar17[,2]),dados_15mar17[,3]) #arredondando valores do parametro que precisa ser inteiros: S (numero de especies), dist.pos (numero de eventos de disturbio)
+dados3_15mar17<-as.data.frame(dados2_15mar17)
+colnames(dados3_15mar17) <- c("S","dist.pos","dist.int")
+####
+save(uncoupled_hipercubo_15mar17,file="hipercubo_15mar17.RData")
+save(dados_15mar17,file="dados_hipercubo_15mar17.RData")
+save(dados3_15mar17,file="dados_arredond_hipercubo_15mar17.RData")

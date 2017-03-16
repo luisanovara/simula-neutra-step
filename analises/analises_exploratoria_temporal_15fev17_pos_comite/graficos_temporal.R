@@ -1,3 +1,5 @@
+# GRAFICOS 15FEV17 : >1sp, variando mutacao
+
 #### carregando dados output
 # media
 load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_output/dados_output_pos_comite_15fev17_hipercubo27jul17/pos_comite_15fev17_dp0_media_temporal.RData")
@@ -162,9 +164,7 @@ mtext("Riqueza",4,padj=4,col="blue")
 # zoom: 1000 primeiros ciclos (11 tempos)
 par(mar=c(5,5,4,5))
 par(mgp=c(3.5,1,0))
-matplot(t(pos_comite_dp1_media_temporal)[1:11,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Ciclos",bty="u",main="Taxa de mutação = 1",axes=F)
-axis(1,at=c(0,1,3.5,6,8.5,11,15),labels=c("",0,250,500,750,1000,""))
-axis(2,at=c(-1000,1,5000,10000,15000,20000,25000),labels=c("",1,5000,10000,15000,20000,""),las=1)
+matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500 e ntotal = 5 mil",xlim=c(0,2000))
 par(new=T)
 matplot(t(pos_comite_dp1_riqueza_temporal)[1:10,],type="l",col=alpha(colors()[dist_classes2],0.3),lty=1,ylim=c(1,500),axes=F,ylab="")
 axis(4,col.axis="blue",las=1,at=c(-100,1,125,250,375,500,600),labels=c("",1,125,250,375,500,""))
