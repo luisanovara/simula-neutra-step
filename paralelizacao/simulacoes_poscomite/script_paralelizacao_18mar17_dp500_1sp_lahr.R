@@ -27,11 +27,11 @@ simula.parallel <- function(replica) {
 }
 
 ######## doMC e plyr
-registerDoMC(8)
+registerDoMC(12)
 
-for (i in (seq(1,1000,8)[1:25]))
+for (i in (seq(1,1000,8)))
 {
   replica.sim <- as.list(i:(i+7))
   resultados <- llply(.data = replica.sim, .fun = simula.parallel, .parallel = TRUE)
-  save(resultados,file=paste("resultados4mar17_dp500_1sp_",i,"-",i+7,".RData",sep=""))
+  save(resultados,file=paste("resultados18mar17_dp500_1sp_",i,"-",i+7,".RData",sep=""))
 }

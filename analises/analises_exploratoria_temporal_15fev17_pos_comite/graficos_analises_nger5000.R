@@ -7,22 +7,45 @@
 dp0_ciclos_nger5000 <- apply(pos_comite_dp0_mortes_cumulativas_temporal-25000000,1,function(x){which(abs(x)==min(abs(x)))})
 dp0_media_nger5000 <- c()
 dp0_ss_total_nger5000 <- c()
-dp0_var_total_nger5000 <- c()
+#dp0_var_total_nger5000 <- c()
 dp0_ss_inter_nger5000 <- c()
-dp0_var_inter_absoluta_nger5000 <- c()
-dp0_var_inter_relativa_nger5000 <- c()
+#dp0_var_inter_absoluta_nger5000 <- c()
+#dp0_var_inter_relativa_nger5000 <- c()
 for(i in 1:1000){
   dp0_media_nger5000[i] <- pos_comite_dp0_media_temporal[i,dp0_ciclos_nger5000[i]]
   dp0_ss_total_nger5000[i] <- pos_comite_dp0_ss_total_temporal[i,dp0_ciclos_nger5000[i]]
-  dp0_var_total_nger5000[i] <- pos_comite_dp0_var_total_temporal[i,dp0_ciclos_nger5000[i]]
+  #dp0_var_total_nger5000[i] <- pos_comite_dp0_var_total_temporal[i,dp0_ciclos_nger5000[i]]
   dp0_ss_inter_nger5000[i] <- pos_comite_dp0_ss_inter_temporal[i,dp0_ciclos_nger5000[i]]
-  dp0_var_inter_absoluta_nger5000[i] <- pos_comite_dp0_var_inter_absoluta_temporal[i,dp0_ciclos_nger5000[i]]
-  dp0_var_inter_relativa_nger5000[i] <- pos_comite_dp0_var_inter_temporal[i,dp0_ciclos_nger5000[i]]
+  #dp0_var_inter_absoluta_nger5000[i] <- pos_comite_dp0_var_inter_absoluta_temporal[i,dp0_ciclos_nger5000[i]]
+  #dp0_var_inter_relativa_nger5000[i] <- pos_comite_dp0_var_inter_temporal[i,dp0_ciclos_nger5000[i]]
 }
 
 dp0_riqueza_nger5000 <- c()
 for(i in 1:1000){
   dp0_riqueza_nger5000[i] <- pos_comite_dp0_riqueza_temporal[i,dp0_ciclos_nger5000[i]]
+}
+
+
+
+dp0_ciclos_nger2000 <- apply(pos_comite_dp0_mortes_cumulativas_temporal-10000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp0_media_nger2000 <- c()
+dp0_ss_total_nger2000 <- c()
+#dp0_var_total_nger5000 <- c()
+dp0_ss_inter_nger2000 <- c()
+#dp0_var_inter_absoluta_nger5000 <- c()
+#dp0_var_inter_relativa_nger5000 <- c()
+for(i in 1:1000){
+  dp0_media_nger2000[i] <- pos_comite_dp0_media_temporal[i,dp0_ciclos_nger2000[i]]
+  dp0_ss_total_nger2000[i] <- pos_comite_dp0_ss_total_temporal[i,dp0_ciclos_nger2000[i]]
+  #dp0_var_total_nger5000[i] <- pos_comite_dp0_var_total_temporal[i,dp0_ciclos_nger5000[i]]
+  dp0_ss_inter_nger2000[i] <- pos_comite_dp0_ss_inter_temporal[i,dp0_ciclos_nger2000[i]]
+  #dp0_var_inter_absoluta_nger5000[i] <- pos_comite_dp0_var_inter_absoluta_temporal[i,dp0_ciclos_nger5000[i]]
+  #dp0_var_inter_relativa_nger5000[i] <- pos_comite_dp0_var_inter_temporal[i,dp0_ciclos_nger5000[i]]
+}
+
+dp0_riqueza_nger2000 <- c()
+for(i in 1:1000){
+  dp0_riqueza_nger2000[i] <- pos_comite_dp0_riqueza_temporal[i,dp0_ciclos_nger2000[i]]
 }
 
 
@@ -44,6 +67,8 @@ plot(dp0_ss_total_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",
 dp0_ss_inter_nger5000[is.nan(dp0_ss_inter_nger5000)]<- 0
 plot(dp0_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,4e11))
 plot(dp0_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,5e8))
+plot(dp0_ss_inter_nger2000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 2 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,2e8))
+plot(dp0_ss_inter_nger2000[dp0_riqueza_nger2000==2]~bat3_indice_dist[dp0_riqueza_nger2000==2],pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 2 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,2e8))
 plot(dp0_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,1e8))
 plot(dp0_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,1e7))
 plot(dp0_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 0",ylim=c(0,1e4))
@@ -185,15 +210,36 @@ dp500_var_inter_relativa_nger5000 <- c()
 for(i in 1:1000){
   dp500_media_nger5000[i] <- pos_comite_dp500_media_temporal[i,dp500_ciclos_nger5000[i]]
   dp500_ss_total_nger5000[i] <- pos_comite_dp500_ss_total_temporal[i,dp500_ciclos_nger5000[i]]
-  dp500_var_total_nger5000[i] <- pos_comite_dp500_var_total_temporal[i,dp500_ciclos_nger5000[i]]
+  #dp500_var_total_nger5000[i] <- pos_comite_dp500_var_total_temporal[i,dp500_ciclos_nger5000[i]]
   dp500_ss_inter_nger5000[i] <- pos_comite_dp500_ss_inter_temporal[i,dp500_ciclos_nger5000[i]]
-  dp500_var_inter_absoluta_nger5000[i] <- pos_comite_dp500_var_inter_absoluta_temporal[i,dp500_ciclos_nger5000[i]]
-  dp500_var_inter_relativa_nger5000[i] <- pos_comite_dp500_var_inter_temporal[i,dp500_ciclos_nger5000[i]]
+  #dp500_var_inter_absoluta_nger5000[i] <- pos_comite_dp500_var_inter_absoluta_temporal[i,dp500_ciclos_nger5000[i]]
+  #dp500_var_inter_relativa_nger5000[i] <- pos_comite_dp500_var_inter_temporal[i,dp500_ciclos_nger5000[i]]
 }
 
 dp500_riqueza_nger5000 <- c()
 for(i in 1:1000){
   dp500_riqueza_nger5000[i] <- pos_comite_dp500_riqueza_temporal[i,dp500_ciclos_nger5000[i]]
+}
+
+dp500_ciclos_nger2000 <- apply(pos_comite_dp500_mortes_cumulativas_temporal-10000000,1,function(x){which(abs(x)==min(abs(x)))})
+dp500_media_nger2000 <- c()
+dp500_ss_total_nger2000 <- c()
+dp500_var_total_nger3000 <- c()
+dp500_ss_inter_nger2000 <- c()
+dp500_var_inter_absoluta_nger3000 <- c()
+dp500_var_inter_relativa_nger3000 <- c()
+for(i in 1:1000){
+  dp500_media_nger2000[i] <- pos_comite_dp500_media_temporal[i,dp500_ciclos_nger2000[i]]
+  dp500_ss_total_nger2000[i] <- pos_comite_dp500_ss_total_temporal[i,dp500_ciclos_nger2000[i]]
+  #dp500_var_total_nger5000[i] <- pos_comite_dp500_var_total_temporal[i,dp500_ciclos_nger5000[i]]
+  dp500_ss_inter_nger2000[i] <- pos_comite_dp500_ss_inter_temporal[i,dp500_ciclos_nger2000[i]]
+  #dp500_var_inter_absoluta_nger5000[i] <- pos_comite_dp500_var_inter_absoluta_temporal[i,dp500_ciclos_nger5000[i]]
+  #dp500_var_inter_relativa_nger5000[i] <- pos_comite_dp500_var_inter_temporal[i,dp500_ciclos_nger5000[i]]
+}
+
+dp500_riqueza_nger2000 <- c()
+for(i in 1:1000){
+  dp500_riqueza_nger2000[i] <- pos_comite_dp500_riqueza_temporal[i,dp500_ciclos_nger2000[i]]
 }
 
 #par(mfrow=c(2,2))
@@ -208,7 +254,11 @@ plot(dp500_ss_total_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio
 
 plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,4e11))
 plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,5e8))
-plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,1e8))
+plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,2e8))
+plot(dp500_ss_inter_nger2000[which(dp500_riqueza_nger2000==2)]~bat3_indice_dist[which(dp500_riqueza_nger2000==2)],pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 2 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,2e8))
+plot(dp500_ss_total_nger2000[which(dp500_riqueza_nger2000==2)]~bat3_indice_dist[which(dp500_riqueza_nger2000==2)],pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático total da estratégia de vida após 2 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,30e8))
+plot(dp500_ss_total_nger2000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático total da estratégia de vida após 2 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,30e8))
+plot(dp500_ss_inter_nger3000[which(dp500_riqueza_nger3000==2)]~bat3_indice_dist[which(dp500_riqueza_nger3000==2)],pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 3 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,2e8))
 plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,1e7))
 plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,1e4))
 plot(dp500_ss_inter_nger5000~bat3_indice_dist,pch=20,xlab="Índice de distúrbio",ylab="Desvio quadrático interespecífico da estratégia de vida após 5 mil gerações",bty="l",las=1,cex.axis=0.8,main="Taxa de mutação = 500",ylim=c(0,10))

@@ -164,4 +164,50 @@ plot(opa7[,6]~vetor_riqueza2,pch=20)
 plot(opa7[,7]~vetor_riqueza2,pch=20)
 
 # nao houve diferenca entre var inter e var inter relativa, entao acho melhor eliminar a var inter relativa, por causa do motivo apontado no outro script (a var inter relativa eh insensivel a distancia entre especies, porque ela eh sempre igual para comunidades com a mesma riqueza, independetemente dos valores das especies)
-# entre var inter e ss inter, acho melhor ficar com a ss inter, porque se ganha a informacao sobre a ss intra tambem. 
+# entre var inter e ss inter, acho melhor ficar com a ss inter, porque se ganha a informacao sobre a ss intra tambem. a var inter tb eh correlacionada com a riqueza (soh q em vez de positivamente, eh negativamente), entao nao vejo vantagens.
+
+
+load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_mestrado.RData")
+# ss total
+plot(dados$ss_total~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_total[dados$bateria==1]~dados$dist_indice_scale[dados$bateria==1],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_total[dados$bateria==2]~dados$dist_indice_scale[dados$bateria==2],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_total[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l",col=colors()[dados$dist_classes])
+# ss inter
+plot(dados$ss_inter~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+#plot(dados$ss_inter[dados$bateria==1]~dados$dist_indice_scale[dados$bateria==1],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_inter[dados$bateria==2]~dados$dist_indice_scale[dados$bateria==2],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_inter[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l",col=colors()[dados$dist_classes])
+# ss inter relativo
+plot(dados$ss_inter_relativo~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+#plot(dados$ss_inter_relativo[dados$bateria==1]~dados$dist_indice_scale[dados$bateria==1],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_inter_relativo[dados$bateria==2]~dados$dist_indice_scale[dados$bateria==2],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$ss_inter_relativo[dados$bateria==2&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==2&dados$riqueza_final==2],pch=20,bty="l",col=colors()[dados$dist_classes[dados$riqueza_final==2]])
+plot(dados$ss_inter_relativo[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l",xlim=c(-1,3))
+plot(dados$ss_inter_relativo[dados$bateria==3&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==3&dados$riqueza_final==2],pch=20,bty="l",xlim=c(-1,3))
+# var total
+plot(dados$var_total~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_total[dados$bateria==1]~dados$dist_indice_scale[dados$bateria==1],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_total[dados$bateria==2]~dados$dist_indice_scale[dados$bateria==2],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_total[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l",col=colors()[dados$dist_classes])
+# var inter
+plot(dados$var_inter~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+#plot(dados$var_inter[dados$bateria==1]~dados$dist_indice_scale[dados$bateria==1],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_inter[dados$bateria==2]~dados$dist_indice_scale[dados$bateria==2],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_inter[dados$bateria==2&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==2&dados$riqueza_final==2],pch=20,bty="l")
+plot(dados$var_inter[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_inter[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l")
+plot(dados$var_inter[dados$bateria==3&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==3&dados$riqueza_final==2],pch=20,bty="l")
+plot(dados$var_inter_corrigida[dados$bateria==3&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==3&dados$riqueza_final==2],pch=20,bty="l")
+# var inter relativa
+plot(dados$var_inter_relativa~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_inter_corrigida_relativa~dados$dist_indice_scale,pch=20,bty="l",col=colors()[dados$dist_classes])
+#plot(dados$var_inter[dados$bateria==1]~dados$dist_indice_scale[dados$bateria==1],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_inter_relativa[dados$bateria==2]~dados$dist_indice_scale[dados$bateria==2],pch=20,bty="l",col=colors()[dados$dist_classes])
+plot(dados$var_inter_relativa[dados$bateria==2&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==2&dados$riqueza_final==2],pch=20,bty="l",col=colors()[dados$dist_classes[dados$riqueza_final==2]])
+plot(dados$var_inter_relativa[dados$bateria==3]~dados$dist_indice_scale[dados$bateria==3],pch=20,bty="l",xlim=c(-1,3))
+plot(dados$var_inter_relativa[dados$bateria==3&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==3&dados$riqueza_final==2],pch=20,bty="l",xlim=c(-1,3))
+plot(dados$var_inter_corrigida_relativa[dados$bateria==3&dados$riqueza_final==2]~dados$dist_indice_scale[dados$bateria==3&dados$riqueza_final==2],pch=20,bty="l",xlim=c(-1,3))
+# utilizarei o ss inter (e ss inter relativo). nao houve diferenca entre o ss inter e a var inter na relacao com o disturbio, e nem houve "interferencia" da riqueza final nesta relacao (i.e., analisar todas as comunidades ou apenas aquelas com riqueza final 2, por exemplo, nao mudou o padrao de ss inter com o disturbio - e nem de var inter). porem, o ss inter tem a vantagem de ser partitivo (somado ao ss intra, dah o ss total), o que facilita a interpretacao do ss inter relativo, que eh interessante de analisar.
+# POREM, para nao ter que incluir a riqueza final como uma covariavel (porque ignorar tb eh osso), eu pode fazer COM AS DUAS: SS INTER E VAR INTER (NAO CORRIGIDA)
+# MELHOR USAR SOH A VAR INTER E QUE SE FODA
