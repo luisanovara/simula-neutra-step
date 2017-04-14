@@ -78,7 +78,7 @@ matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mor
 par(new=T)
 matplot(y=t(pos_comite_dp500_riqueza_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",axes=F,xlim=c(0,10000))
 #### ate geracao 2 mil
-matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=opa,las=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500, n = 5 mil e riqueza > 1",cex.axis=0.8,xlim=c(0,2000))
+matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(opa,0.5),las=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500, n = 5 mil e riqueza > 1",cex.axis=0.8,xlim=c(0,2000),lty=1)
 matplot(y=t(pos_comite_dp500_media_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),las=1,ylim=c(1,20000),ylab="Estratégia de vida média",xlab="Geração",bty="l",main="Taxa de mutação = 500, n = 5 mil e riqueza > 1",cex.axis=0.8,xlim=c(0,2000))
 par(new=T)
 matplot(y=t(pos_comite_dp500_riqueza_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.5),lty=1,ylim=c(1,500),ylab="",xlab="",bty="l",main="",axes=F,xlim=c(0,2000))
@@ -165,6 +165,7 @@ matplot(y=t(pos_comite_dp500_ss_total_temporal)[1:3001,],x=t(I(pos_comite_dp500_
 
 #### ate geracao 10 mil
 matplot(y=t(pos_comite_dp500_ss_total_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.3),lty=1,ylab="Desvio quadrático total",ylim=c(0,4e11),main="Taxa de mutação = 500, n = 5 mil e riqueza > 1",xlab="Geração",bty="l",las=1,cex.axis=0.8,xlim=c(0,10000))
+matplot(y=t(pos_comite_dp500_ss_total_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=opa,lty=1,ylab="Desvio quadrático total",ylim=c(0,4e11),main="Taxa de mutação = 500, n = 5 mil e riqueza > 1",xlab="Geração",bty="l",las=1,cex.axis=0.8,xlim=c(0,10000))
 
 #### ate geracao 2 mil
 matplot(y=t(pos_comite_dp500_ss_total_temporal)[1:3001,],x=t(I(pos_comite_dp500_mortes_cumulativas_temporal/5000))[1:3001,],type="l",col=alpha(colors()[dist_classes],0.3),lty=1,ylab="Desvio quadrático total",ylim=c(0,4e11),main="Taxa de mutação = 500, n = 5 mil e riqueza > 1",xlab="Geração",bty="l",las=1,cex.axis=0.8,xlim=c(0,2000))

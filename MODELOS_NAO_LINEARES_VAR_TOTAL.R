@@ -6,6 +6,7 @@ load("~/Documents/LABTROP_LET/R/dados_mestrado/dados_mestrado.RData")
 # CENARIO ADAPTACAO
 var_total_adapt <- dados$var_total[dados$bateria==1]/(20000^2)
 dist_adapt <- dados$dist_indice[dados$bateria==1]
+
 ## modelos
 ### nulo
 var_total_nulo_adapt <-lm(var_total_adapt~1)
@@ -39,7 +40,7 @@ var_total_pot_adapt_mle <- mle2(funcao_pot_mle, start=start)
 coef_logit_linearizada <- coef(lm(log(var_total_adapt/(1-var_total_adapt))~dist_adapt))
 var_total_logit_adapt <- nls(var_total_adapt~(1/(1+exp(-a*dist_adapt-b)))+c,start=list(a=coef_logit_linearizada[[2]],b=coef_logit_linearizada[[1]],c=0))
 curve((0.0016/(1+exp(-(0.0002*(x-5000)))))-0.0004,add=T,col="red")
-var_total_logit_adapt_2 <- nls(var_total_adapt~(a/(1+exp(-(b*(dist_adapt-c))))+d),start=list(a=0.0016,b=0.0002,c=5000,d=0.0004))
+var_total_logit_adapt_2 <- nls(var_total_adapt~(a/(1+exp(-b*(dist_adapt-c)))+d),start=list(a=0.0016,b=0.0002,c=5000,d=0.0004))
 ##
 require(nlmrt)
 my_data<-data.frame(my_x=dist_adapt,my_y=var_total_adapt)
@@ -68,8 +69,8 @@ var_total_holling_adapt <- nls(my_y~((a*(my_x^2))/(b+(c*my_x)+(my_x^2)))+d,start
 #AICtab(var_total_nulo_adapt,var_total_linear_adapt,var_total_mm_adapt,var_total_pot_adapt_fb,var_total_logit_adapt_fb,var_total_logit_adapt_2,var_total_exp_adapt,var_total_quadr_adapt,var_total_ricker_adapt,var_total_holling_adapt)
 AICtab(var_total_nulo_adapt,var_total_linear_adapt,var_total_mm_adapt,var_total_pot_adapt_fb,var_total_logit_adapt_2,var_total_exp_adapt,var_total_quadr_adapt,var_total_ricker_adapt,var_total_holling_adapt)
 #### plotando
-plot(var_total_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,0.0014))
-curve((coef(var_total_logit_adapt_2)[[1]]/(1+exp(-(coef(var_total_logit_adapt_2)[[2]]*(x-coef(var_total_logit_adapt_2)[[3]])))))+coef(var_total_logit_adapt_2)[[4]],add=T,col="green4")
+plot(var_total_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,0.0014),las=1,ylab="Variância total do índice de estratégia de vida", xlab="Índice de distúrbio")
+curve((coef(var_total_logit_adapt_2)[[1]]/(1+exp(-coef(var_total_logit_adapt_2)[[2]]*(x-coef(var_total_logit_adapt_2)[[3]]))))+coef(var_total_logit_adapt_2)[[4]],add=T,col="black")
 curve(((coef(var_total_mm_adapt)[[1]]*x)/(coef(var_total_mm_adapt)[[2]]+x))+coef(var_total_mm_adapt)[[3]],add=T,col="blue")
 curve((coef(var_total_pot_adapt_fb)[[1]]*(x^coef(var_total_pot_adapt_fb)[[2]])+coef(var_total_pot_adapt_fb)[[3]]),add=T,col="red")
 abline(var_total_linear_adapt)
@@ -82,7 +83,7 @@ curve((coef(var_total_quadr_adapt)[[1]]*(x^2)+coef(var_total_quadr_adapt)[[2]]*x
 
 # CENARIO EXCLUSAO
 var_total_excl <- dados$var_total[dados$bateria==2]/(20000^2)
-#var_total_excl <- var_total_excl + 0.000001
+var_total_excl <- var_total_excl + 0.000001
 dist_excl <- dados$dist_indice[dados$bateria==2]
 ## modelos
 ### nulo
@@ -106,7 +107,7 @@ require(nlmrt)
 my_data<-data.frame(my_x=dist_excl,my_y=var_total_excl)
 teste <- nlxb(my_y~(a*(my_x^b)+c),start=list(a=1e-10,b=-1,c=0),data=my_data) # deu certo, agora vou usar os valores pro nls
 ##
-var_total_pot_excl <- nls(my_y~(a*(my_x^b)+c),start=list(a=teste$coefficients[[1]],b=teste$coefficients[[2]],c=teste$coefficients[[3]]),data=my_data) # deu certo
+var_total_pot_excl <- nls(var_total_excl~(a*(dist_excl^b)+c),start=list(a=2.421625,b=-0.8222337,c=-0.0004710381)) # deu certo
 # require(nls2)
 # var_total_pot_excl <- nls2(var_total_excl~(a*(dist_excl^b)+c),start=list(a=data.frame(a=c(11e-4,mean(11e-4,teste$coefficients[[1]]),teste$coefficients[[1]])),b=data.frame(b=c(0.01,mean(0.01,teste$coefficients[[2]]),teste$coefficients[[2]])),c=data.frame(c=c(0,mean(0,teste$coefficients[[3]]),teste$coefficients[[3]]))),algorithm = "brute-force")
 # ## mle
@@ -160,12 +161,12 @@ var_total_holling_excl <- nls(my_y~((a*(my_x^2))/(b+(c*my_x)+(my_x^2)))+d,start=
 #AICtab(var_total_nulo_excl,var_total_linear_excl,var_total_mm_excl,var_total_pot_excl,var_total_logit_excl_2_mle,var_total_logit_excl_2_fb,var_total_exp_excl,var_total_quadr_exc,var_total_ricker_excl,var_total_holling_excl)
 AICtab(var_total_nulo_excl,var_total_linear_excl,var_total_mm_excl,var_total_pot_excl,var_total_logit_excl_2_mle,var_total_exp_excl,var_total_quadr_exc,var_total_ricker_excl,var_total_holling_excl)
 #### plotando
-plot(var_total_excl~dist_excl,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,0.0014))
+plot(var_total_excl~dist_excl,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,0.0014),las=1,ylab="Variância total do índice de estratégia de vida", xlab="Índice de distúrbio")
 curve((coef(var_total_logit_excl_2_mle)[[1]]/(1+exp(-(coef(var_total_logit_excl_2_mle)[[2]]*(x-coef(var_total_logit_excl_2_mle)[[3]])))))+coef(var_total_logit_excl_2_mle)[[4]],add=T,col="green4")
 curve(((coef(var_total_mm_excl)[[1]]*x)/(coef(var_total_mm_excl)[[2]]+x))+coef(var_total_mm_excl)[[3]],add=T,col="blue")
 curve((coef(var_total_pot_excl)[[1]]*(x^coef(var_total_pot_excl)[[2]])+coef(var_total_pot_excl)[[3]]),add=T,col="red")
 abline(var_total_linear_excl)
-curve(exp(coef(var_total_exp_excl)[[1]]*x+coef(var_total_exp_excl)[[2]]),add=T,col="violet")
+curve(exp(coef(var_total_exp_excl)[[1]]*x+coef(var_total_exp_excl)[[2]]),add=T,col="black")
 abline(var_total_nulo_excl,col="gray")
 curve(((coef(var_total_holling_excl)[[1]]*(x^2))/(coef(var_total_holling_excl)[[2]]+(coef(var_total_holling_excl)[[3]]*x)+(x^2)))+coef(var_total_holling_excl)[[4]],add=T,col="pink")
 curve((coef(var_total_ricker_excl)[[1]]*x*exp(coef(var_total_ricker_excl)[[2]]*x)+coef(var_total_ricker_excl)[[3]]),add=T,col="yellow")
@@ -245,8 +246,8 @@ var_total_holling_adapt_excl <- nls(my_y~((a*(my_x^2))/(b+(c*my_x)+(my_x^2)))+d,
 #AICtab(var_total_nulo_adapt_excl,var_total_linear_adapt_excl,var_total_mm_adapt_excl,var_total_pot_adapt_excl_fb,var_total_logit_adapt_excl_fb,var_total_logit_adapt_excl_2,var_total_exp_adapt_excl,var_total_quadr_adapt_excl,var_total_ricker_adapt_excl_fb,var_total_holling_adapt_excl)
 AICtab(var_total_nulo_adapt_excl,var_total_linear_adapt_excl,var_total_mm_adapt_excl,var_total_pot_adapt_excl_fb,var_total_logit_adapt_excl_2,var_total_exp_adapt_excl,var_total_quadr_adapt_excl,var_total_ricker_adapt_excl_fb,var_total_holling_adapt_excl)
 #### plotando
-plot(var_total_adapt_excl~dist_adapt_excl,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,0.0014))
-curve((coef(var_total_logit_adapt_excl_2)[[1]]/(1+exp(-(coef(var_total_logit_adapt_excl_2)[[2]]*(x-coef(var_total_logit_adapt_excl_2)[[3]])))))+coef(var_total_logit_adapt_excl_2)[[4]],add=T,col="green4")
+plot(var_total_adapt_excl~dist_adapt_excl,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,0.002),las=1,ylab="Variância total do índice de estratégia de vida", xlab="Índice de distúrbio")
+curve((coef(var_total_logit_adapt_excl_2)[[1]]/(1+exp(-(coef(var_total_logit_adapt_excl_2)[[2]]*(x-coef(var_total_logit_adapt_excl_2)[[3]])))))+coef(var_total_logit_adapt_excl_2)[[4]],add=T,col="black")
 curve(((coef(var_total_mm_adapt_excl)[[1]]*x)/(coef(var_total_mm_adapt_excl)[[2]]+x))+coef(var_total_mm_adapt_excl)[[3]],add=T,col="blue") #CORRIGIR?
 curve((coef(var_total_pot_adapt_excl_fb)[[1]]*(x^coef(var_total_pot_adapt_excl_fb)[[2]])+coef(var_total_pot_adapt_excl_fb)[[3]]),add=T,col="red")
 abline(var_total_linear_adapt_excl)
