@@ -16,7 +16,7 @@ var_total_nulo_adapt<-lm(var_total_adapt~1)
 funcao_nulo_mle_normal <- function(mean,sd){
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
-var_total_nulo_adapt_mle_normal <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(var_total_adapt),sd=sd(var_total_adapt)))
+#var_total_nulo_adapt_mle_normal <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(var_total_adapt),sd=sd(var_total_adapt)))
 var_total_nulo_adapt_mle_normal_nm <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(var_total_adapt),sd=sd(var_total_adapt)),method = "Nelder-Mead")
 
 ### linear
@@ -25,7 +25,7 @@ funcao_linear_mle_normal <- function(a,b,sd){
   mean <- a*dist_adapt+b
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
-var_total_linear_adapt_mle_normal <- mle2(funcao_linear_mle_normal, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],sd=sd(var_total_adapt)))
+#var_total_linear_adapt_mle_normal <- mle2(funcao_linear_mle_normal, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],sd=sd(var_total_adapt)))
 var_total_linear_adapt_mle_normal_nm <- mle2(funcao_linear_mle_normal, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],sd=sd(var_total_adapt)),method = "Nelder-Mead")
 
 ### mm
@@ -35,7 +35,7 @@ funcao_mm_mle_normal <- function(a,b,c,sd){
   mean <- ((a*dist_adapt)/(b+dist_adapt))+c
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
-var_total_mm_adapt_mle_normal <- mle2(funcao_mm_mle_normal, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(var_total_adapt)))
+#var_total_mm_adapt_mle_normal <- mle2(funcao_mm_mle_normal, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(var_total_adapt)))
 var_total_mm_adapt_mle_normal_nm <- mle2(funcao_mm_mle_normal, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(var_total_adapt)),method = "Nelder-Mead")
 
 ### potencia
@@ -47,7 +47,7 @@ funcao_pot_mle_normal <- function(a,b,c,sd){
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
 start<-list(a=0.0009,b=0.55,c=0,sd=sd(var_total_adapt))
-var_total_pot_adapt_mle_normal<-mle2(funcao_pot_mle_normal, start=start)
+#var_total_pot_adapt_mle_normal<-mle2(funcao_pot_mle_normal, start=start)
 var_total_pot_adapt_mle_normal_nm<-mle2(funcao_pot_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=10000))
 
 ### logistica
@@ -57,7 +57,7 @@ funcao_logit_mle_normal <- function(a,b,c,d,sd){
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
 start=list(a=0.0016,b=0.0002,c=5000,d=0.0004,sd=sd(var_total_adapt))
-var_total_logit_adapt_mle_normal <- mle2(funcao_logit_mle_normal, start=start)
+#var_total_logit_adapt_mle_normal <- mle2(funcao_logit_mle_normal, start=start)
 var_total_logit_adapt_mle_normal_nm <- mle2(funcao_logit_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=1000))
 
 ### exponencial
@@ -68,7 +68,7 @@ funcao_exp_mle_normal <- function(a,b,sd){
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
 start=list(a=var_total_coef_exp_linearizada_adapt[[2]],b=var_total_coef_exp_linearizada_adapt[[1]],sd=sd(var_total_adapt))
-var_total_exp_adapt_mle_normal <- mle2(funcao_exp_mle_normal, start=start)
+#var_total_exp_adapt_mle_normal <- mle2(funcao_exp_mle_normal, start=start)
 var_total_exp_adapt_mle_normal_nm <- mle2(funcao_exp_mle_normal, start=start,method = "Nelder-Mead")
 
 ### quadratica
@@ -78,7 +78,7 @@ funcao_quadr_mle_normal <- function(a,b,c,sd){
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
 start <- list(a=-4.8e-13,b=4.8e-8,c=0,sd=sd(var_total_adapt))
-var_total_quadr_adapt_mle_normal <- mle2(funcao_quadr_mle_normal, start=start)
+#var_total_quadr_adapt_mle_normal <- mle2(funcao_quadr_mle_normal, start=start)
 var_total_quadr_adapt_mle_normal_nm <- mle2(funcao_quadr_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=1000))
 
 ### ricker
@@ -88,7 +88,7 @@ funcao_ricker_mle_normal <- function(a,b,c,sd){
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
 start <- list(a=1.3048e-07,b=-30e-06,c=0,sd=sd(var_total_adapt))
-var_total_ricker_adapt_mle_normal <- mle2(funcao_ricker_mle_normal, start=start)
+#var_total_ricker_adapt_mle_normal <- mle2(funcao_ricker_mle_normal, start=start)
 var_total_ricker_adapt_mle_normal_nm <- mle2(funcao_ricker_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=1000))
 
 ### holling
@@ -97,101 +97,104 @@ funcao_holling_mle_normal <- function(a,b,c,d,sd){
   mean <- ((a*(dist_adapt^2))/(b+(c*dist_adapt)+(dist_adapt^2)))+d
   -sum(dnorm(var_total_adapt, mean=mean, sd=sd, log=TRUE))
 }
-start=list(a=0.0011,b=3.5e+08,c=-15000,d=0,sd=sd(var_total_adapt))
-var_total_holling_adapt_mle_normal <- mle2(funcao_holling_mle_normal, start=start)
+#start=list(a=0.0011,b=3.5e+08,c=-15000,d=0,sd=sd(var_total_adapt))
+#start=list(a=0.0011,b=4e+08,c=-18000,d=0,sd=sd(var_total_adapt))
+start=list(a=0.0011,b=4.5e+08,c=-15000,d=0.00005,sd=sd(var_total_adapt))
+start=list(a=0.00121,b=-10e5,c=15000,d=3.26e-5,sd=sd(var_total_adapt))
+#var_total_holling_adapt_mle_normal <- mle2(funcao_holling_mle_normal, start=start)
 var_total_holling_adapt_mle_normal_nm <- mle2(funcao_holling_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=1000))
 
 ## GAMA
 
-### nulo
-funcao_nulo_mle_gama <- function(scale,shape){
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-var_total_nulo_adapt_mle_gama <- mle2(funcao_nulo_mle_gama, start=list(scale=var(var_total_adapt)/mean(var_total_adapt),shape=mean(var_total_adapt)^2/var(var_total_adapt)))
-var_total_nulo_adapt_mle_gama_nm <- mle2(funcao_nulo_mle_gama, start=list(scale=var(var_total_adapt)/mean(var_total_adapt),shape=mean(var_total_adapt)^2/var(var_total_adapt)),method = "Nelder-Mead")
-
-### linear
-funcao_linear_mle_gama <- function(a,b,shape){
-  scale <- ((a*dist_adapt+b))/shape
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-var_total_linear_adapt_mle_gama <- mle2(funcao_linear_mle_gama, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],shape=mean(var_total_adapt)^2/var(var_total_adapt)))
-var_total_linear_adapt_mle_gama_nm <- mle2(funcao_linear_mle_gama, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],shape=mean(var_total_adapt)^2/var(var_total_adapt)),method = "Nelder-Mead")
-
-### mm
-funcao_mm_mle_gama <- function(a,b,c,shape){
-  scale <- (((a*dist_adapt)/(b+dist_adapt))+c)/shape
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-var_total_mm_adapt_mle_gama <- mle2(funcao_mm_mle_gama, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt)),control=list(maxit=1000))
-var_total_mm_adapt_mle_gama_nm <- mle2(funcao_mm_mle_gama, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt)),method = "Nelder-Mead",control=list(maxit=2000))
-
-### potencia
-funcao_pot_mle_gama <- function(a,b,c,shape){
-  scale <- ((a*(dist_adapt^b))+c)/shape
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-start<-list(a=0.0009,b=0.55,c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
-var_total_pot_adapt_mle_gama <- mle2(funcao_pot_mle_gama, start=start)
-var_total_pot_adapt_mle_gama_nm <- mle2(funcao_pot_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=10000))
-
-### logistica
-funcao_logit_mle_gama <- function(a,b,c,d,shape){
-  scale <- (a/(1+exp(-(b*(dist_adapt-c))))+d)/shape
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-start=list(a=0.921,b=0.000035,c=90000,d=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
-var_total_logit_adapt_mle_gama <- mle2(funcao_logit_mle_gama, start=start)
-var_total_logit_adapt_mle_gama_nm <- mle2(funcao_logit_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=10000))
-
-### exponencial
-funcao_exp_mle_gama <- function(a,b,shape){
-  scale <- (exp(a*dist_adapt+b))/shape
-  -sum(dgamma(var_total_adapt, shape=shape, scale=scale, log=TRUE))
-}
-start=list(a=var_total_coef_exp_linearizada_adapt[[2]],b=var_total_coef_exp_linearizada_adapt[[1]],shape=mean(var_total_adapt)^2/var(var_total_adapt))
-var_total_exp_adapt_mle_gama <- mle2(funcao_exp_mle_gama, start=start)
-var_total_exp_adapt_mle_gama_nm <- mle2(funcao_exp_mle_gama, start=start,method = "Nelder-Mead")
-
-### quadratica
-funcao_quadr_mle_gama <- function(a,b,c,shape){
-  scale <- (a*(dist_adapt^2) + b*dist_adapt + c)/shape
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-start <- list(a=-4.8e-13,b=4.8e-8,c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
-var_total_quadr_excl_mle_gama <- mle2(funcao_quadr_mle_gama, start=start)
-var_total_quadr_excl_mle_gama_nm <- mle2(funcao_quadr_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
-
-### ricker
-funcao_ricker_mle_gama <- function(a,b,c,shape){
-  scale <- ((a*dist_adapt*exp(b*dist_adapt))+c)/shape
-  -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
-}
-start <- list(a=1.3048e-07,b=-30e-06,c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
-var_total_ricker_adapt_mle_gama <- mle2(funcao_ricker_mle_gama, start=start)
-var_total_ricker_adapt_mle_gama_nm <- mle2(funcao_ricker_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
-
-### holling
-funcao_holling_mle_gama <- function(a,b,c,d,shape){
-  scale <- (((a*(dist_adapt^2))/(b+(c*dist_adapt)+(dist_adapt^2)))+d)/shape
-  -sum(dgamma(var_total_adapt, shape=shape, scale=scale, log=TRUE))
-}
-start=list(a=0.0011,b=3.5e+08,c=-15000,d=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
-var_total_holling_adapt_mle_gama <- mle2(funcao_holling_mle_gama, start=start)
-var_total_holling_excl_mle_gama_nm <- mle2(funcao_holling_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
+# ### nulo
+# funcao_nulo_mle_gama <- function(scale,shape){
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# var_total_nulo_adapt_mle_gama <- mle2(funcao_nulo_mle_gama, start=list(scale=var(var_total_adapt)/mean(var_total_adapt),shape=mean(var_total_adapt)^2/var(var_total_adapt)))
+# var_total_nulo_adapt_mle_gama_nm <- mle2(funcao_nulo_mle_gama, start=list(scale=var(var_total_adapt)/mean(var_total_adapt),shape=mean(var_total_adapt)^2/var(var_total_adapt)),method = "Nelder-Mead")
+# 
+# ### linear
+# funcao_linear_mle_gama <- function(a,b,shape){
+#   scale <- ((a*dist_adapt+b))/shape
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# var_total_linear_adapt_mle_gama <- mle2(funcao_linear_mle_gama, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],shape=mean(var_total_adapt)^2/var(var_total_adapt)))
+# var_total_linear_adapt_mle_gama_nm <- mle2(funcao_linear_mle_gama, start=list(a=coef(var_total_linear_adapt)[[2]],b=coef(var_total_linear_adapt)[[1]],shape=mean(var_total_adapt)^2/var(var_total_adapt)),method = "Nelder-Mead")
+# 
+# ### mm
+# funcao_mm_mle_gama <- function(a,b,c,shape){
+#   scale <- (((a*dist_adapt)/(b+dist_adapt))+c)/shape
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# var_total_mm_adapt_mle_gama <- mle2(funcao_mm_mle_gama, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt)),control=list(maxit=1000))
+# var_total_mm_adapt_mle_gama_nm <- mle2(funcao_mm_mle_gama, start=list(a=1/var_total_coef_mm_linearizada_adapt[[2]],b=var_total_coef_mm_linearizada_adapt[[1]]*(1/var_total_coef_mm_linearizada_adapt[[2]]),c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt)),method = "Nelder-Mead",control=list(maxit=2000))
+# 
+# ### potencia
+# funcao_pot_mle_gama <- function(a,b,c,shape){
+#   scale <- ((a*(dist_adapt^b))+c)/shape
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# start<-list(a=0.0009,b=0.55,c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
+# var_total_pot_adapt_mle_gama <- mle2(funcao_pot_mle_gama, start=start)
+# var_total_pot_adapt_mle_gama_nm <- mle2(funcao_pot_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=10000))
+# 
+# ### logistica
+# funcao_logit_mle_gama <- function(a,b,c,d,shape){
+#   scale <- (a/(1+exp(-(b*(dist_adapt-c))))+d)/shape
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# start=list(a=0.921,b=0.000035,c=90000,d=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
+# var_total_logit_adapt_mle_gama <- mle2(funcao_logit_mle_gama, start=start)
+# var_total_logit_adapt_mle_gama_nm <- mle2(funcao_logit_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=10000))
+# 
+# ### exponencial
+# funcao_exp_mle_gama <- function(a,b,shape){
+#   scale <- (exp(a*dist_adapt+b))/shape
+#   -sum(dgamma(var_total_adapt, shape=shape, scale=scale, log=TRUE))
+# }
+# start=list(a=var_total_coef_exp_linearizada_adapt[[2]],b=var_total_coef_exp_linearizada_adapt[[1]],shape=mean(var_total_adapt)^2/var(var_total_adapt))
+# var_total_exp_adapt_mle_gama <- mle2(funcao_exp_mle_gama, start=start)
+# var_total_exp_adapt_mle_gama_nm <- mle2(funcao_exp_mle_gama, start=start,method = "Nelder-Mead")
+# 
+# ### quadratica
+# funcao_quadr_mle_gama <- function(a,b,c,shape){
+#   scale <- (a*(dist_adapt^2) + b*dist_adapt + c)/shape
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# start <- list(a=-4.8e-13,b=4.8e-8,c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
+# var_total_quadr_excl_mle_gama <- mle2(funcao_quadr_mle_gama, start=start)
+# var_total_quadr_excl_mle_gama_nm <- mle2(funcao_quadr_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
+# 
+# ### ricker
+# funcao_ricker_mle_gama <- function(a,b,c,shape){
+#   scale <- ((a*dist_adapt*exp(b*dist_adapt))+c)/shape
+#   -sum(dgamma(var_total_adapt, scale=scale, shape=shape, log=TRUE))
+# }
+# start <- list(a=1.3048e-07,b=-30e-06,c=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
+# var_total_ricker_adapt_mle_gama <- mle2(funcao_ricker_mle_gama, start=start)
+# var_total_ricker_adapt_mle_gama_nm <- mle2(funcao_ricker_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
+# 
+# ### holling
+# funcao_holling_mle_gama <- function(a,b,c,d,shape){
+#   scale <- (((a*(dist_adapt^2))/(b+(c*dist_adapt)+(dist_adapt^2)))+d)/shape
+#   -sum(dgamma(var_total_adapt, shape=shape, scale=scale, log=TRUE))
+# }
+# start=list(a=0.0011,b=3.5e+08,c=-15000,d=0,shape=mean(var_total_adapt)^2/var(var_total_adapt))
+# var_total_holling_adapt_mle_gama <- mle2(funcao_holling_mle_gama, start=start)
+# var_total_holling_excl_mle_gama_nm <- mle2(funcao_holling_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
 
 #### selecao
-AICtab(var_total_nulo_adapt,
+AICtab(#var_total_nulo_adapt,
        #var_total_nulo_adapt_mle_normal,
        var_total_nulo_adapt_mle_normal_nm,
        #var_total_nulo_adapt_mle_gama,
-       var_total_nulo_adapt_mle_gama_nm,
-       var_total_linear_adapt,
+       #var_total_nulo_adapt_mle_gama_nm,
+       #var_total_linear_adapt,
        #var_total_linear_adapt_mle_normal,
        var_total_linear_adapt_mle_normal_nm,
        #var_total_linear_adapt_mle_gama,
-       var_total_linear_adapt_mle_gama_nm,
-       var_total_mm_adapt,
+       #var_total_linear_adapt_mle_gama_nm,
+       #var_total_mm_adapt,
        #var_total_mm_adapt_mle_normal,
        var_total_mm_adapt_mle_normal_nm,
        #var_total_mm_adapt_mle_gama,
@@ -200,28 +203,28 @@ AICtab(var_total_nulo_adapt,
        #var_total_pot_adapt_mle_normal,
        var_total_pot_adapt_mle_normal_nm,
        #var_total_pot_adapt_mle_gama,
-       var_total_pot_adapt_mle_gama_nm,
-       var_total_logit_adapt,
+       #var_total_pot_adapt_mle_gama_nm,
+       #var_total_logit_adapt,
        #var_total_logit_adapt_mle_normal,
        var_total_logit_adapt_mle_normal_nm,
        #var_total_logit_adapt_mle_gama,
-       var_total_logit_adapt_mle_gama_nm,
-       var_total_exp_adapt,
+       #var_total_logit_adapt_mle_gama_nm,
+       #var_total_exp_adapt,
        #var_total_exp_adapt_mle_normal,
        var_total_exp_adapt_mle_normal_nm,
        #var_total_exp_adapt_mle_gama,
-       var_total_exp_adapt_mle_gama_nm,
-       var_total_quadr_adapt,
+       #var_total_exp_adapt_mle_gama_nm,
+       #var_total_quadr_adapt,
        #var_total_quadr_adapt_mle_normal,
        var_total_quadr_adapt_mle_normal_nm,
        #var_total_quadr_adapt_mle_gama,
        #var_total_quadr_adapt_mle_gama_nm,
-       var_total_ricker_adapt,
+       #var_total_ricker_adapt,
        #var_total_ricker_adapt_mle_normal,
        var_total_ricker_adapt_mle_normal_nm,
        #var_total_ricker_adapt_mle_gama,
-       var_total_ricker_adapt_mle_gama_nm,
-       var_total_holling_adapt,
+       #var_total_ricker_adapt_mle_gama_nm,
+       #var_total_holling_adapt,
        #var_total_holling_adapt_mle_normal,
        var_total_holling_adapt_mle_normal_nm
        #var_total_holling_adapt_mle_gama,
@@ -229,63 +232,11 @@ AICtab(var_total_nulo_adapt,
 )
 
 #### plotando
-par(bty="l")
-plot(var_total_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,1),las=1,ylab="Média do índice de estratégia de vida",xlab="Índice de distúrbio")
-curve((coef(var_total_logit_adapt)[[1]]/(1+exp(-(coef(var_total_logit_adapt)[[2]]*(x-coef(var_total_logit_adapt)[[3]])))))+coef(var_total_logit_adapt)[[4]],add=T,col="green")
-curve((coef(var_total_logit_adapt_mle_normal_nm)[[1]]/(1+exp(-(coef(var_total_logit_adapt_mle_normal_nm)[[2]]*(x-coef(var_total_logit_adapt_mle_normal_nm)[[3]])))))+coef(var_total_logit_adapt_mle_normal_nm)[[4]],add=T,col="green")
-
-
-
-
-#### plotando
-par(bty="l")
-plot(var_total_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),las=1,ylab="Média do índice de estratégia de vida",xlab="Índice de distúrbio")
-
-abline(var_total_nulo_adapt,col="gray")
-abline(h=coef(var_total_nulo_adapt_mle_normal)[[1]],col="gray")
-abline(h=coef(var_total_nulo_adapt_mle_normal_nm)[[1]],col="gray")
-#abline(h=coef(var_total_nulo_adapt_mle_gama)[[1]],col="gray")
-abline(h=coef(var_total_nulo_adapt_mle_gama_nm)[[1]],col="gray")
-
-abline(var_total_linear_adapt)
-curve(coef(var_total_linear_adapt_mle_normal)[[1]]*x+coef(var_total_linear_adapt_mle_normal)[[2]],add=T)
-curve(coef(var_total_linear_adapt_mle_normal_nm)[[1]]*x+coef(var_total_linear_adapt_mle_normal_nm)[[2]],add=T)
-#curve((coef(var_total_linear_adapt_mle_gama)[[1]]*x+coef(var_total_linear_adapt_mle_gama)[[2]]),add=T)
-curve((coef(var_total_linear_adapt_mle_gama_nm)[[1]]*x+coef(var_total_linear_adapt_mle_gama_nm)[[2]]),add=T)
-
-curve(((coef(var_total_mm_adapt)[[1]]*x)/(coef(var_total_mm_adapt)[[2]]+x)+coef(var_total_mm_adapt)[[3]]),add=T,col="blue")
-curve(((coef(var_total_mm_adapt_mle_normal)[[1]]*x)/(coef(var_total_mm_adapt_mle_normal)[[2]]+x)+coef(var_total_mm_adapt_mle_normal)[[3]]),add=T,col="blue")
-curve(((coef(var_total_mm_adapt_mle_normal_nm)[[1]]*x)/(coef(var_total_mm_adapt_mle_normal_nm)[[2]]+x)+coef(var_total_mm_adapt_mle_normal_nm)[[3]]),add=T,col="blue")
-#curve(((coef(var_total_mm_adapt_mle_gama)[[1]]*x)/(coef(var_total_mm_adapt_mle_gama)[[2]]+x)+coef(var_total_mm_adapt_mle_gama)[[3]]),add=T,col="blue")
-curve(((coef(var_total_mm_adapt_mle_gama_nm)[[1]]*x)/(coef(var_total_mm_adapt_mle_gama_nm)[[2]]+x)+coef(var_total_mm_adapt_mle_gama_nm)[[3]]),add=T,col="blue")
-
-curve((coef(var_total_pot_adapt)[[1]]*(x^coef(var_total_pot_adapt)[[2]])+coef(var_total_pot_adapt)[[3]]),add=T,col="red")
-curve((coef(var_total_pot_adapt_mle_normal)[[1]]*(x^coef(var_total_pot_adapt_mle_normal)[[2]])+coef(var_total_pot_adapt_mle_normal)[[3]]),add=T,col="red")
-curve((coef(var_total_pot_adapt_mle_normal_nm)[[1]]*(x^coef(var_total_pot_adapt_mle_normal_nm)[[2]])+coef(var_total_pot_adapt_mle_normal_nm)[[3]]),add=T,col="red")
-#curve((coef(var_total_pot_adapt_mle_gama)[[1]]*(x^coef(var_total_pot_adapt_mle_gama)[[2]])+coef(var_total_pot_adapt_mle_gama)[[3]]),add=T,col="red")
-curve((coef(var_total_pot_adapt_mle_gama_nm)[[1]]*(x^coef(var_total_pot_adapt_mle_gama_nm)[[2]])+coef(var_total_pot_adapt_mle_gama_nm)[[3]]),add=T,col="red")
-
-curve((coef(var_total_logit_adapt)[[1]]/(1+exp(-(coef(var_total_logit_adapt)[[2]]*(x-coef(var_total_logit_adapt)[[3]])))))+coef(var_total_logit_adapt)[[4]],add=T,col="green")
-curve((coef(var_total_logit_adapt_mle_normal)[[1]]/(1+exp(-(coef(var_total_logit_adapt_mle_normal)[[2]]*(x-coef(var_total_logit_adapt_mle_normal)[[3]])))))+coef(var_total_logit_adapt_mle_normal)[[4]],add=T,col="green")
-curve((coef(var_total_logit_adapt_mle_normal_nm)[[1]]/(1+exp(-(coef(var_total_logit_adapt_mle_normal_nm)[[2]]*(x-coef(var_total_logit_adapt_mle_normal_nm)[[3]])))))+coef(var_total_logit_adapt_mle_normal_nm)[[4]],add=T,col="green")
-#curve(((coef(var_total_logit_adapt_mle_gama)[[1]]/(1+exp(-(coef(var_total_logit_adapt_mle_gama)[[2]]*(x-coef(var_total_logit_adapt_mle_gama)[[3]])))))+coef(var_total_logit_adapt_mle_gama)[[4]]),add=T,col="green")
-curve(((coef(var_total_logit_adapt_mle_gama_nm)[[1]]/(1+exp(-(coef(var_total_logit_adapt_mle_gama_nm)[[2]]*(x-coef(var_total_logit_adapt_mle_gama_nm)[[3]])))))+coef(var_total_logit_adapt_mle_gama_nm)[[4]]),add=T,col="green")
-
-curve((coef(var_total_exp_adapt)[[1]]*x+coef(var_total_exp_adapt)[[2]]),add=T,col="yellow")
-curve((coef(var_total_exp_adapt_mle_normal)[[1]]*x+coef(var_total_exp_adapt_mle_normal)[[2]]),add=T,col="yellow")
-curve((coef(var_total_exp_adapt_mle_normal_nm)[[1]]*x+coef(var_total_exp_adapt_mle_normal_nm)[[2]]),add=T,col="yellow")
-#curve((coef(var_total_exp_adapt_mle_gama)[[1]]*x+coef(var_total_exp_adapt_mle_gama)[[2]]),add=T,col="yellow")
-curve((coef(var_total_exp_adapt_mle_gama_nm)[[1]]*x+coef(var_total_exp_adapt_mle_gama_nm)[[2]]),add=T,col="yellow")
-
-#curve((coef(var_total_quadr_excl)[[1]]*(x^2)+coef(var_total_quadr_excl)[[2]]*x+coef(var_total_quadr_excl)[[3]]),add=T,col="yellow")
-#curve((coef(var_total_quadr_excl_mle_normal_nm)[[1]]*(x^2)+coef(var_total_quadr_excl_mle_normal_nm)[[2]]*x+coef(var_total_quadr_excl_mle_normal_nm)[[3]]),add=T,col="yellow")
-
-curve(((coef(var_total_holling_adapt)[[1]]*(x^2))/(coef(var_total_holling_adapt)[[2]]+(coef(var_total_holling_adapt)[[3]]*x)+(x^2)))+coef(var_total_holling_adapt)[[4]],add=T,col="pink")
+par(mar=c(5,5,4,3))
+par(mgp=c(3.5,0.7,0))
+par(tck=-0.02)
+plot(var_total_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),las=1,ylab="Variância total do índice de estratégia de vida",xlab="Índice de distúrbio (mortes acumuladas / tamanho da comunidade)",axes=F,ylim=c(0,0.0025))
+axis(1,las=1,at=c(-50000,0,50000,100000,150000,200000,250000,300000,350000),labels=c("","0",expression("50"%.%10^"3"),expression("100"%.%10^"3"),expression("150"%.%10^"3"),expression("200"%.%10^"3"),expression("250"%.%10^"3"),expression("300"%.%10^"3"),""),cex.axis=0.9)
+axis(2,las=1,at=c(-1,0,0.0005,0.0010,0.0015,0.0020,0.0025,1),labels=c("","0",expression(text=paste("0,5"%.%10^"-3",sep="")),expression(text=paste(1%.%10^"-3",sep="")),expression(text=paste("1,5"%.%10^"-3",sep="")),expression(text=paste("2"%.%10^"-3",sep="")),expression(text=paste("2,5"%.%10^"-3",sep="")),""),cex.axis=0.9)
 curve(((coef(var_total_holling_adapt_mle_normal_nm)[[1]]*(x^2))/(coef(var_total_holling_adapt_mle_normal_nm)[[2]]+(coef(var_total_holling_adapt_mle_normal_nm)[[3]]*x)+(x^2)))+coef(var_total_holling_adapt_mle_normal_nm)[[4]],add=T,col="black")
-curve(((coef(var_total_holling_excl_mle_gama_nm)[[1]]*(x^2))/(coef(var_total_holling_excl_mle_gama_nm)[[2]]+(coef(var_total_holling_excl_mle_gama_nm)[[3]]*x)+(x^2)))+coef(var_total_holling_excl_mle_gama_nm)[[4]],add=T,col="pink")
-
-#curve((coef(var_total_ricker_excl)[[1]]*x*exp(coef(var_total_ricker_excl)[[2]]*x)+coef(var_total_ricker_excl)[[3]]),add=T,col="purple")
-#curve((coef(var_total_ricker_excl_mle_normal_nm)[[1]]*x*exp(coef(var_total_ricker_excl_mle_normal_nm)[[2]]*x)+coef(var_total_ricker_excl_mle_normal_nm)[[3]]),add=T,col="purple")
-#curve((coef(var_total_ricker_excl_mle_gama)[[1]]*x*exp(coef(var_total_ricker_excl_mle_gama)[[2]]*x)+coef(var_total_ricker_excl_mle_gama)[[3]]),add=T,col="purple")
-curve((coef(var_total_ricker_excl_mle_gama_nm)[[1]]*x*exp(coef(var_total_ricker_excl_mle_gama_nm)[[2]]*x)+coef(var_total_ricker_excl_mle_gama_nm)[[3]]),add=T,col="purple")
-
+#curve((coef(var_total_logit_adapt)[[1]]/(1+exp(-(coef(var_total_logit_adapt)[[2]]*(x-coef(var_total_logit_adapt)[[3]])))))+coef(var_total_logit_adapt)[[4]],add=T,col="black")
