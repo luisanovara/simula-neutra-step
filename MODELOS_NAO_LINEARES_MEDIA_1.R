@@ -13,68 +13,70 @@ dist_adapt <- dados$dist_indice[dados$bateria==1]
 ## NORMAL
 
 # ### nulo
-# media_nulo_adapt<-lm(media_adapt~1)
-# funcao_nulo_mle_normal <- function(mean,sd){
-#   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
-# }
-# media_nulo_adapt_mle_normal <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(media_adapt),sd=sd(media_adapt)))
-# media_nulo_adapt_mle_normal_nm <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(media_adapt),sd=sd(media_adapt)),method = "Nelder-Mead")
+media_nulo_adapt<-lm(media_adapt~1)
+funcao_nulo_mle_normal <- function(mean,sd){
+  -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
+}
+media_nulo_adapt_mle_normal <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(media_adapt),sd=sd(media_adapt)))
+media_nulo_adapt_mle_normal_nm <- mle2(funcao_nulo_mle_normal, start=list(mean=mean(media_adapt),sd=sd(media_adapt)),method = "Nelder-Mead")
 # 
 # ### linear
 media_linear_adapt<-lm(media_adapt~dist_adapt)
-# funcao_linear_mle_normal <- function(a,b,sd){
-#   mean <- a*dist_adapt+b
-#   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
-# }
-# media_linear_adapt_mle_normal <- mle2(funcao_linear_mle_normal, start=list(a=coef(media_linear_adapt)[[2]],b=coef(media_linear_adapt)[[1]],sd=sd(media_adapt)))
-# media_linear_adapt_mle_normal_nm <- mle2(funcao_linear_mle_normal, start=list(a=coef(media_linear_adapt)[[2]],b=coef(media_linear_adapt)[[1]],sd=sd(media_adapt)),method = "Nelder-Mead")
-# 
+funcao_linear_mle_normal <- function(a,b,sd){
+   mean <- a*dist_adapt+b
+   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
+ }
+media_linear_adapt_mle_normal <- mle2(funcao_linear_mle_normal, start=list(a=coef(media_linear_adapt)[[2]],b=coef(media_linear_adapt)[[1]],sd=sd(media_adapt)))
+media_linear_adapt_mle_normal_nm <- mle2(funcao_linear_mle_normal, start=list(a=coef(media_linear_adapt)[[2]],b=coef(media_linear_adapt)[[1]],sd=sd(media_adapt)),method = "Nelder-Mead")
+
 # ### mm
 media_coef_mm_linearizada_adapt <- coef(lm(I(dist_adapt/media_adapt)~dist_adapt))
-# media_mm_adapt <- nls(media_adapt~I(I(a*dist_adapt)/I(b+dist_adapt)+c),start=list(a=1/media_coef_mm_linearizada_adapt[[2]],b=media_coef_mm_linearizada_adapt[[1]]*(1/media_coef_mm_linearizada_adapt[[2]]),c=0))
-# funcao_mm_mle_normal <- function(a,b,c,sd){
-#   mean <- ((a*dist_adapt)/(b+dist_adapt))+c
-#   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
-# }
-# media_mm_adapt_mle_normal <- mle2(funcao_mm_mle_normal, start=list(a=1/media_coef_mm_linearizada_adapt[[2]],b=media_coef_mm_linearizada_adapt[[1]]*(1/media_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(media_adapt)))
-# media_mm_adapt_mle_normal_nm <- mle2(funcao_mm_mle_normal, start=list(a=1/media_coef_mm_linearizada_adapt[[2]],b=media_coef_mm_linearizada_adapt[[1]]*(1/media_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(media_adapt)),method = "Nelder-Mead")
-# 
-# ### potencia
-# #plot(media_adapt~dist_adapt)
-# #curve(0.0009*(x^0.55)+0,add=T)
-# media_pot_adapt <- nls(media_adapt~I(a*I(dist_adapt^b)+c),start=list(a=0.0009,b=0.55,c=0))
-# funcao_pot_mle_normal <- function(a,b,c,sd){
-#   mean <- (a*(dist_adapt^b))+c
-#   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
-# }
-# start<-list(a=0.0009,b=0.55,c=0,sd=sd(media_adapt))
-# media_pot_adapt_mle_normal<-mle2(funcao_pot_mle_normal, start=start)
-# media_pot_adapt_mle_normal_nm<-mle2(funcao_pot_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=10000))
-# 
-# ### logistica
-# # media_coef_logit_linearizada_adapt <- coef(lm(log(media_adapt/(1-media_adapt))~dist_adapt))
-# # media_logit_adapt <- nls(media_adapt~(1/(1+exp(-a*dist_adapt-b)))+c,start=list(a=media_coef_logit_linearizada_adapt[[2]],b=media_coef_logit_linearizada_adapt[[1]],c=0))
-# #plot(media_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,1),las=1,ylab="Média do índice de estratégia de vida",xlab="Índice de distúrbio")
-# #curve((0.921/(1+exp(-(0.000035*(x-90000))))),add=T,col="red")
-# media_logit_adapt<- nls(media_adapt~(a/(1+exp(-(b*(dist_adapt-c))))+d),start=list(a=0.921,b=0.000035,c=90000,d=0))
-# funcao_logit_mle_normal <- function(a,b,c,d,sd){
-#   mean <- a/(1+exp(-(b*(dist_adapt-c))))+d
-#   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
-# }
-# start=list(a=0.921,b=0.000035,c=90000,d=0,sd=sd(media_adapt))
-# media_logit_adapt_mle_normal <- mle2(funcao_logit_mle_normal, start=start)
-# media_logit_adapt_mle_normal_nm <- mle2(funcao_logit_mle_normal, start=start,method = "Nelder-Mead")
-# 
+media_mm_adapt <- nls(media_adapt~I(I(a*dist_adapt)/I(b+dist_adapt)+c),start=list(a=1/media_coef_mm_linearizada_adapt[[2]],b=media_coef_mm_linearizada_adapt[[1]]*(1/media_coef_mm_linearizada_adapt[[2]]),c=0))
+funcao_mm_mle_normal <- function(a,b,c,sd){
+  mean <- ((a*dist_adapt)/(b+dist_adapt))+c
+  -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
+}
+media_mm_adapt_mle_normal <- mle2(funcao_mm_mle_normal, start=list(a=1/media_coef_mm_linearizada_adapt[[2]],b=media_coef_mm_linearizada_adapt[[1]]*(1/media_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(media_adapt)))
+media_mm_adapt_mle_normal_nm <- mle2(funcao_mm_mle_normal, start=list(a=1/media_coef_mm_linearizada_adapt[[2]],b=media_coef_mm_linearizada_adapt[[1]]*(1/media_coef_mm_linearizada_adapt[[2]]),c=0,sd=sd(media_adapt)),method = "Nelder-Mead")
+
+### potencia
+#plot(media_adapt~dist_adapt)
+#curve(0.0009*(x^0.55)+0,add=T)
+media_pot_adapt <- nls(media_adapt~I(a*I(dist_adapt^b)+c),start=list(a=0.0009,b=0.55,c=0))
+funcao_pot_mle_normal <- function(a,b,c,sd){
+  mean <- (a*(dist_adapt^b))+c
+  -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
+}
+start<-list(a=0.0009,b=0.55,c=0,sd=sd(media_adapt))
+media_pot_adapt_mle_normal<-mle2(funcao_pot_mle_normal, start=start)
+media_pot_adapt_mle_normal_nm<-mle2(funcao_pot_mle_normal, start=start,method = "Nelder-Mead",control=list(maxit=10000))
+
+### logistica
+#media_coef_logit_linearizada_adapt <- coef(lm(log(media_adapt/(1-media_adapt))~dist_adapt))
+#media_logit_adapt <- nls(media_adapt~(1/(1+exp(-a*dist_adapt-b)))+c,start=list(a=media_coef_logit_linearizada_adapt[[2]],b=media_coef_logit_linearizada_adapt[[1]],c=0))
+#media_logit_adapt <- nls(media_adapt~(1/(1+exp(-a*dist_adapt-b)))+c,start=list(a=media_coef_logit_linearizada_adapt[[2]],b=media_coef_logit_linearizada_adapt[[1]],c=0))
+#plot(media_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,1),las=1,ylab="Média do índice de estratégia de vida",xlab="Índice de distúrbio")
+#curve((0.921/(1+exp(-(0.000035*(x-90000))))),add=T,col="red")
+media_logit_adapt<- nls(media_adapt~(a/(1+exp(-(b*(dist_adapt-c))))),start=list(a=0.921,b=0.000035,c=90000))
+#media_logit_adapt<- nls(media_adapt~(a/(1+exp(-(b*(dist_adapt-c))))+d),start=list(a=0.921,b=0.0000338,c=90000.53,d=2.950075e-08))
+funcao_logit_mle_normal <- function(a,b,c,sd){
+  mean <- a/(1+exp(-(b*(dist_adapt-c))))
+  -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
+}
+start=list(a=0.921,b=0.000035,c=90000,sd=sd(media_adapt))
+media_logit_adapt_mle_normal <- mle2(funcao_logit_mle_normal, start=start)
+media_logit_adapt_mle_normal_nm <- mle2(funcao_logit_mle_normal, start=start,method = "Nelder-Mead")
+
 # ### exponencial
 media_coef_exp_linearizada_adapt <- coef(lm(log(media_adapt)~dist_adapt))
-# media_exp_adapt <- nls(media_adapt~(exp(a*dist_adapt+b)),start=list(a=media_coef_exp_linearizada_adapt[[2]],b=media_coef_exp_linearizada_adapt[[1]]))
-# funcao_exp_mle_normal <- function(a,b,sd){
-#   mean <- (exp(a*dist_adapt+b))
-#   -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
-# }
-# start=list(a=media_coef_exp_linearizada_adapt[[2]],b=media_coef_exp_linearizada_adapt[[1]],sd=sd(media_adapt))
-# media_exp_adapt_mle_normal <- mle2(funcao_exp_mle_normal, start=start)
-# media_exp_adapt_mle_normal_nm <- mle2(funcao_exp_mle_normal, start=start,method = "Nelder-Mead")
+ media_exp_adapt <- nls(media_adapt~(exp(a*dist_adapt+b)),start=list(a=media_coef_exp_linearizada_adapt[[2]],b=media_coef_exp_linearizada_adapt[[1]]))
+funcao_exp_mle_normal <- function(a,b,sd){
+  mean <- (exp(a*dist_adapt+b))
+  -sum(dnorm(media_adapt, mean=mean, sd=sd, log=TRUE))
+}
+start=list(a=media_coef_exp_linearizada_adapt[[2]],b=media_coef_exp_linearizada_adapt[[1]],sd=sd(media_adapt))
+media_exp_adapt_mle_normal <- mle2(funcao_exp_mle_normal, start=start)
+media_exp_adapt_mle_normal_nm <- mle2(funcao_exp_mle_normal, start=start,method = "Nelder-Mead")
 
 ## GAMA
 
@@ -111,13 +113,13 @@ start<-list(a=0.0009,b=0.55,c=0,shape=mean(media_adapt)^2/var(media_adapt))
 media_pot_adapt_mle_gama_nm <- mle2(funcao_pot_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=10000))
 
 ### logistica
-funcao_logit_mle_gama <- function(a,b,c,d,shape){
-  scale <- (a/(1+exp(-(b*(dist_adapt-c))))+d)/shape
+funcao_logit_mle_gama <- function(a,b,c,shape){
+  scale <- (a/(1+exp(-(b*(dist_adapt-c)))))/shape
   -sum(dgamma(media_adapt, scale=scale, shape=shape, log=TRUE))
 }
-start=list(a=0.921,b=0.000035,c=90000,d=0,shape=mean(media_adapt)^2/var(media_adapt))
+start=list(a=0.921,b=0.000035,c=90000,shape=mean(media_adapt)^2/var(media_adapt))
 #media_logit_adapt_mle_gama <- mle2(funcao_logit_mle_gama, start=start)
-media_logit_adapt_mle_gama_nm <- mle2(funcao_logit_mle_gama, start=start,method = "Nelder-Mead")
+media_logit_adapt_mle_gama_nm <- mle2(funcao_logit_mle_gama, start=start,method = "Nelder-Mead",control=list(maxit=1000))
 
 ### exponencial
 funcao_exp_mle_gama <- function(a,b,shape){
@@ -130,36 +132,37 @@ media_exp_adapt_mle_gama_nm <- mle2(funcao_exp_mle_gama, start=start,method = "N
 
 
 #### selecao
-AICtab(#media_nulo_adapt,
+AICtab(media_nulo_adapt,
        #media_nulo_adapt_mle_normal,
        #media_nulo_adapt_mle_normal_nm,
        #media_nulo_adapt_mle_gama,
        media_nulo_adapt_mle_gama_nm,
-       #media_linear_adapt,
+       media_linear_adapt,
        #media_linear_adapt_mle_normal,
        #media_linear_adapt_mle_normal_nm,
        #media_linear_adapt_mle_gama,
        media_linear_adapt_mle_gama_nm,
-       #media_mm_adapt,
+       media_mm_adapt,
        #media_mm_adapt_mle_normal,
        #media_mm_adapt_mle_normal_nm,
        #media_mm_adapt_mle_gama,
        media_mm_adapt_mle_gama_nm,
-       #media_pot_adapt,
+       media_pot_adapt,
        #media_pot_adapt_mle_normal,
        #media_pot_adapt_mle_normal_nm,
        #media_pot_adapt_mle_gama,
        media_pot_adapt_mle_gama_nm,
-       #media_logit_adapt,
-       #media_logit_adapt_mle_normal,
+       media_logit_adapt,
+      #media_logit_adapt_mle_normal,
        #media_logit_adapt_mle_normal_nm,
        #media_logit_adapt_mle_gama,
        media_logit_adapt_mle_gama_nm,
-       #media_exp_adapt,
+       media_exp_adapt,
        #media_exp_adapt_mle_normal,
        #media_exp_adapt_mle_normal_nm,
        #media_exp_adapt_mle_gama,
-       media_exp_adapt_mle_gama_nm)
+       media_exp_adapt_mle_gama_nm,
+       base=T)
 
 #### plotando
 par(mar=c(5,5,4,3))
@@ -168,5 +171,10 @@ par(tck=-0.02)
 plot(media_adapt~dist_adapt,pch=20,col="gray",bty="l",xlim=c(0,3e5),ylim=c(0,1),las=1,ylab="Média do índice de estratégia de vida",xlab="Índice de distúrbio (mortes acumuladas / tamanho da comunidade)",axes=F)
 axis(1,las=1,at=c(-50000,0,50000,100000,150000,200000,250000,300000,350000),labels=c("","0",expression("50"%.%10^"3"),expression("100"%.%10^"3"),expression("150"%.%10^"3"),expression("200"%.%10^"3"),expression("250"%.%10^"3"),expression("300"%.%10^"3"),""),cex.axis=0.9)
 axis(2,las=1,at=c(-1,0,0.25,0.5,0.75,1,2),labels=c("","0","0,25","0,5","0,75","1",""),cex.axis=0.9)
-curve((coef(media_logit_adapt_mle_gama_nm)[[1]]/(1+exp(-(coef(media_logit_adapt_mle_gama_nm)[[2]]*(x-coef(media_logit_adapt_mle_gama_nm)[[3]])))))+coef(media_logit_adapt_mle_gama_nm)[[4]],add=T,col="black")
+curve((coef(media_logit_adapt)[[1]]/(1+exp(-(coef(media_logit_adapt)[[2]]*(x-coef(media_logit_adapt)[[3]]))))),add=T,col="black")
 
+
+#AICtab(media_nulo_adapt_mle_normal_nm,media_nulo_adapt_mle_gama_nm)
+
+
+#### Obs.: A funcao nls (pacote nls) aceita apenas dados provenientes de distribuicao normal (na verdade, ela trata os dados como normais). A funcao gnls (pacote nlme) aceita dados com variancia nao constante e correlacionada com a media, mas nao permite a determinacao da familia de distribuicao. A funcao gnm (pacote gnm), que poderia ser dita como uma versao nao linear da glm, aceita que determinemos a família da distribuicao, mas sua interface não aceita a formula da funcao matematica e sim o formato resp ~ preditor1 + ... + preditori. Dessa forma, utilizei a função mle (pacote bbmle) para estimar os coeficientes da maioria dos modelos.
